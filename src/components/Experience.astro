@@ -1,5 +1,10 @@
 ---
-import { siteConfig } from "../config";
+
+import type { Props } from "../config";
+
+const { siteConfig } = Astro.props as Props;
+
+
 const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 ---
 

@@ -7,6 +7,14 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fr'],
+    routing: {
+        prefixDefaultLocale: true, 
+      redirectToDefaultLocale: false
+    }
+  },
   
   site: 'https://antonin-slv.github.io',
 });

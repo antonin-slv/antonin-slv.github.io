@@ -1,5 +1,7 @@
 ---
-import { siteConfig } from "../config";
+import type { Props } from "../config";
+
+const { siteConfig } = Astro.props as Props;
 ---
 
 <section id="about" class="p-8 sm:p-12 md:p-16 lg:p-24">

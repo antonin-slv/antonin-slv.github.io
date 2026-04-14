@@ -1,5 +1,9 @@
 ---
-import { siteConfig } from "../config";
+
+import type { Props } from "../config";
+
+const { siteConfig } = Astro.props as Props;
+
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 ---
 

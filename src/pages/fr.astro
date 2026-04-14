@@ -1,0 +1,14 @@
+---
+import "../styles/global.css";
+
+import type { SiteConfig } from "../config";
+import { frSiteConfig } from "../config_fr";
+
+var siteConfig : SiteConfig = frSiteConfig;
+import WebSite from "../components/WebSite.astro";
+---
+
+<html lang="fr">
+  <WebSite siteConfig={siteConfig}>
+  </WebSite>
+</html>

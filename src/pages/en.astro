@@ -1,0 +1,16 @@
+---
+import "../styles/global.css";
+import { enSiteConfig } from "../config_en";
+import WebSite from "../components/WebSite.astro";
+import type { SiteConfig } from "../config";
+
+var siteConfig :SiteConfig = enSiteConfig;
+
+---
+
+<html lang="en">
+  <WebSite siteConfig={siteConfig}>
+  </WebSite>
+</html>
+
+
