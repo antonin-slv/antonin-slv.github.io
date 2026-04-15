@@ -26,6 +26,7 @@ interface Project {
   description: string;
   link?: string;
   skills?: string[];
+  imageSrc?: string;  
 }
 
 // L'interface principale
@@ -33,7 +34,7 @@ export interface SiteConfig {
   language: string;
   name: string;
   title: string;
-  description: string; // Ajouté car présent dans tes messages précédents
+  description: string;
   accentColor: string;
   aboutMe: string;
   skills: string[];

@@ -25,6 +25,7 @@ export const enSiteConfig : SiteConfig = {
         but not without resistance. This is the first complete game I made with Unreal Engine, 
         building upon the knowledge built with previous prototypes (a brick breaker and a bomberman).`,
       link: "https://antonin-slv.itch.io/a-wee-tank",
+      imageSrc: "/images/AWeeTank.png",
       skills: ["UE5", "C++", "Perforce"],
     },
     {
@@ -34,15 +35,18 @@ export const enSiteConfig : SiteConfig = {
         The twist: the 3D world is projected onto the 2D player's  plane. 
         The entire game is fully functional over the network.`,
       link: "",
+      imageSrc: "/images/teapot.png",
       skills: ["UE5", "C++", "Perforce"],
     },
     {
-      name: "Juste le boat - AI Reinforcement Learning",
+      name: "Juste le boat - RL learning (IA)",
       description:
         `A Godot project where we implemented the godot-rl-agents library 
         to train an AI to control a boat in a 2D environment. It serves as an opponent 
         in a game where the player must capture all the islands to win.`,
+
       link: "https://github.com/OtchiTan/juste-le-boat-en-faite",
+      imageSrc: "/images/the_boat.gif",
       skills: ["Godot", "Python", "PyTorch"]
     },
     {
@@ -52,6 +56,7 @@ export const enSiteConfig : SiteConfig = {
         It's a narrative game where you play an employee of the Oasis space station, 
         where the famous drink is produced. Naturally, things don't go as planned. nb : Oasis is a French energy drink brand.`,
       link: "https://blova.itch.io/nectar-des-etoiles",
+      imageSrc: "/images/nectar_des_etoiles.png",
       skills: ["UE5", "C++", "Perforce"]
     },
     {
@@ -60,6 +65,7 @@ export const enSiteConfig : SiteConfig = {
       then pivoted to build a minimalistic 3D visualizer from scratch using only C and the Windows API. 
       This project allowed me to explore the fundamentals of 3D rendering and low-level Windows development.`,
       link: "https://github.com/antonin-slv/handmade",
+      imageSrc: "/images/handmade.png",
       skills: ["C", "Windows API"], 
     },
   ],

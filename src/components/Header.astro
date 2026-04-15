@@ -1,6 +1,7 @@
 ---
 
 
+import { Icon } from "astro-icon/components";
 import type { Props } from "../config";
 
 const { siteConfig } = Astro.props as Props;
@@ -11,7 +12,8 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 
 const isFrench = siteConfig.language === "fr";
 const LanguageChangeTargetUrl = isFrench ? '/en' : '/fr';
-const LanguageBtnLabel = isFrench ? 'EN 🇬🇧' : 'FR 🇫🇷';
+const LanguageBtnLabel = isFrench ? 'GOTO ENGLISH ---> ' : 'Passer en français ---> ';
+const flagIcon = isFrench ?  'circle-flags:fr' : 'circle-flags:uk';
 ---
 
 <header
@@ -67,10 +69,10 @@ const LanguageBtnLabel = isFrench ? 'EN 🇬🇧' : 'FR 🇫🇷';
       <a
         id="language-toggle"
         href={LanguageChangeTargetUrl}
-        class="ml-auto text-sm text-gray-600 hover:text-gray-800 transition-colors font-medium"
-      
+        class="ml-auto text-sm text-gray-600 hover:text-gray-800 transition-colors font-medium inline-flex"
+
         >
-        {LanguageBtnLabel}
+        {LanguageBtnLabel} <Icon name={flagIcon} class="ml-2 h-5 w-5" />
     
       </a> 
 

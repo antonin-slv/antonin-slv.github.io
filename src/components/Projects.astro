@@ -1,10 +1,12 @@
 ---
-
+import { map } from "astro:schema";
 import type { Props } from "../config";
-
+import { Image } from "astro:assets";
 const { siteConfig } = Astro.props as Props;
 
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+
+const ImportedImages = import.meta.glob<{ default: ImageMetadata }>('../images/*.{jpeg,jpg,png,gif}');
 ---
 
 {
@@ -33,21 +35,24 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                       rel: "noopener noreferrer",
                     }
                   : {};
-
+                
+                const projectHasImage = project?.imageSrc && ImportedImages[".." + project.imageSrc];
+                
                 return (
-                  <div class="group relative">
+                  <div class={`group/card relative project-card ${projectHasImage ? 'scroll-reveal-card' : ''}`}>
                     <Component
                       {...linkProps}
-                      class={`block relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 ${
+                      class={`block flex flex-col bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 overflow-hidden ${
                         project.link
                           ? "hover:bg-white hover:shadow-xl hover:border-gray-300 hover:-translate-y-1"
                           : ""
                       }`}
                     >
+                      
                       {project.link && (
-                        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center bg-gray-900 rounded-full text-white transition-all duration-300 group-hover:bg-gray-700">
+                        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center bg-gray-900 rounded-full text-white transition-all duration-300 group-hover/card:bg-gray-700 z-10">
                           <svg
-                            class="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                            class="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 transition-transform duration-300 group-hover/card:translate-x-0.5 group-hover/card:-translate-y-0.5"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -62,39 +67,71 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                         </div>
                       )}
 
-                      <div class="space-y-4">
-                        <div>
-                          <span
-                            class="text-sm font-mono"
-                            style={{ color: siteConfig.accentColor }}
-                          >
-                            0{index + 1}
-                          </span>
-                          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
-                            {project.name}
-                          </h3>
-                        </div>
+                      
+                      
+                      {projectHasImage && (
+                        <div class="grid grid-rows-[0fr] opacity-0 transition-all duration-700 ease-in-out group-[.is-centered]/card:grid-rows-[1fr] group-[.is-centered]/card:opacity-100">
+                          <div class="min-h-0 overflow-hidden relative border-b-0 group-[.is-centered]/card:border-b border-gray-200">
+                          
+                            <div class="text-sm font-mono absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center z-10 shadow-sm"
+                              style={{ color: siteConfig.accentColor }}
+                            >
+                              0{index + 1}
+                            </div>
 
-                        <p
-                          class={`text-base sm:text-lg text-gray-600 leading-relaxed ${project.link ? "pr-12 sm:pr-14 md:pr-16" : ""}`}
-                        >
-                          {project.description}
-                        </p>
+                            <div class="w-full aspect-video">
+                              <Image 
+                                src={ImportedImages[".." + project.imageSrc]()} 
+                                alt={`Aperçu de ${project.name}`}
+                                class="w-full h-full object-cover"
+                              />
+                            </div>
+                            <div class="absolute inset-x-0 bottom-0 p-4 sm:p-6 md:p-8 bg-gradient-to-t from-gray-900/90 to-transparent opacity-0 transition-opacity duration-500 delay-200 group-[.is-centered]/card:opacity-100 flex flex-col justify-end">
+                              <h3 class="text-xl sm:text-2xl font-bold text-white pr-14">
+                                {project.name}
+                              </h3>
+                            </div>
 
-                        {project.skills && project.skills.length > 0 && (
-                          <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2">
-                            {project.skills.map((skill) => (
-                              <span
-                                class={`px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gray-900 text-white rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${
-                                  project.link ? "group-hover:bg-gray-800" : ""
-                                }`}
-                              >
-                                {skill}
-                              </span>
-                            ))}
                           </div>
-                        )}
+                        </div>
+                      )}
+
+                      <div class="relative p-4 sm:p-6 md:p-8 flex-1 flex flex-col justify-between">
+                        <div class="space-y-4">
+                          <div class={`${projectHasImage ? '' : ''}`}>
+                            <span
+                              class={`text-sm font-mono block transition-opacity duration-300 ${projectHasImage ? 'group-[.is-centered]/card:opacity-0' : ''}`}
+                              style={{ color: siteConfig.accentColor }}
+                            >
+                              0{index + 1}
+                            </span>
+                            <h3 class={`text-xl sm:text-2xl font-bold text-gray-900 pr-14 sm:pr-16 transition-opacity duration-300 ${projectHasImage ? 'group-[.is-centered]/card:opacity-0' : ''}`}>
+                              {project.name}
+                            </h3>
+                          </div>
+
+                          <p
+                            class={`text-base sm:text-lg text-gray-600 leading-relaxed ${project.link ? "pr-12 sm:pr-14 md:pr-16" : ""} ${projectHasImage ? 'group-[.is-centered]/card:-mt-16 transition-all duration-500' : ''}`}
+                          >
+                            {project.description}
+                          </p>
+
+                          {project.skills && project.skills.length > 0 && (
+                            <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2">
+                              {project.skills.map((skill) => (
+                                <span
+                                  class={`px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gray-900 text-white rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${
+                                    project.link ? "group-hover/card:bg-gray-800" : ""
+                                  }`}
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       </div>
+
                     </Component>
                   </div>
                 );
@@ -106,3 +143,35 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
     </section>
   )
 }
+
+<script>
+  const setupScrollImages = () => {
+    const cards = document.querySelectorAll('.scroll-reveal-card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          
+          cards.forEach(card => {
+            if (card !== entry.target) {
+              card.classList.remove('is-centered');
+            }
+          });
+
+          entry.target.classList.add('is-centered');
+          
+        } else {
+          entry.target.classList.remove('is-centered');
+        }
+      });
+    }, {
+      threshold: 0, 
+      rootMargin: "-40% 0px -20% 0px" 
+    });
+
+    cards.forEach(card => observer.observe(card));
+  };
+
+  document.addEventListener('DOMContentLoaded', setupScrollImages);
+  document.addEventListener('astro:page-load', setupScrollImages);
+</script>

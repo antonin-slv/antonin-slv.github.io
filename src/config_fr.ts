@@ -25,6 +25,7 @@ export const frSiteConfig : SiteConfig = {
         `Des bûcherons abattent les arbres de la forêt. Le petit tank que vous ête en tant que joueur, tente de les arrêter,
         mais non sans résistance. C'est le premier jeu que j'ai réalisé avec Unreal Engine après deux prototypes : un casse brique et un bomberman.
      `,
+      imageSrc: "/images/AWeeTank.png",
       link: "https://antonin-slv.itch.io/a-wee-tank",
       skills: ["UE5", "C++", "Perforce"],
     },
@@ -35,10 +36,12 @@ export const frSiteConfig : SiteConfig = {
         Petite touche d'originalité : le monde 3D est projeté sur le plan du joueur 2D.
         Le tout fonctionne également en réseau.`,
       link: "",
+      imageSrc: "/images/teapot.png",
       skills: ["UE5", "C++", "Perforce"],
     },
     {
-      name: "Juste le boat - Apprentissage par renforcement (IA)",
+      name: "Juste le boat - RL learning (IA)",
+      imageSrc: "/images/the_boat.gif",
       description:
         `Un projet Godot où nous avons implémenté la librairie godot-rl-agents
         pour entraîner une IA à contrôler un bateau dans un environnement 2D.
@@ -54,6 +57,7 @@ export const frSiteConfig : SiteConfig = {
         C'est un jeu narratif où vous incarnez un employé de la station spatiale Oasis, où est créée la fameuse boisson.
         Évidemment, tout ne se passera pas comme prévu.`,
       link: "https://blova.itch.io/nectar-des-etoiles",
+      imageSrc: "/images/nectar_des_etoiles.png",
       skills: ["UE5", "C++", "Perforce"]
     },
     {
@@ -62,6 +66,7 @@ export const frSiteConfig : SiteConfig = {
       Ensuite je me suis laissé distraire pour créer un visualiseur 3D minimaliste, uniquement en C et avec l'API Windows.
       Ce projet m'a permis d'explorer les fondements du rendu 3D, et du développement sur windows.`,
       link: "https://github.com/antonin-slv/handmade",
+      imageSrc: "/images/handmade.png",
       skills: ["C", "Windows API"], 
     },
   ],
