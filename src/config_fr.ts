@@ -3,6 +3,8 @@ import type { SiteConfig } from "./config.ts";
 
 export const frSiteConfig : SiteConfig = {
   language: "fr",
+  IAM: "Je suis",
+  greeting : "Bonjour ! 👋",
   name: "Antonin Sylvestre",
   title: "Programmeur Généraliste (C++ / Unreal) & ingénieur informatique",
   description: "Portfolio d'Antonin Sylvestre",

@@ -118,7 +118,9 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
           <a
             href="#about"
             class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
-            >About</a
+            >
+            {siteConfig?.language === "fr" ? "À propos" : "About"}
+            </a
           >
           {
             hasProjects && (
@@ -126,7 +128,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
                 href="#projects"
                 class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
-                Projects
+                {siteConfig?.language === "fr" ? "Projets" : "Projects"}
               </a>
             )
           }
@@ -136,7 +138,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
                 href="#experience"
                 class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
-                Experience
+                {siteConfig?.language === "fr" ? "Expérience" : "Experience"}
               </a>
             )
           }
@@ -146,7 +148,7 @@ const hasEducation = siteConfig.education && siteConfig.education.length > 0;
                 href="#education"
                 class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
-                Education
+                {siteConfig?.language === "fr" ? "Formation" : "Education"}
               </a>
             )
           }

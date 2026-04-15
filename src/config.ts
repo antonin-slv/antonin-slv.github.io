@@ -31,6 +31,8 @@ interface Project {
 
 // L'interface principale
 export interface SiteConfig {
+  IAM: string;
+  greeting: string;
   language: string;
   name: string;
   title: string;
@@ -38,10 +40,10 @@ export interface SiteConfig {
   accentColor: string;
   aboutMe: string;
   skills: string[];
-  social?: Social;
+  social: Social;
   projects: Project[];
-  experience?: Experience[];
-  education?: Education[];
+  experience: Experience[];
+  education: Education[];
 }
 
 // Interface pour les Props d'Astro

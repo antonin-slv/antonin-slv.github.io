@@ -2,6 +2,8 @@ import type { SiteConfig } from "./config.ts";
 
 export const enSiteConfig : SiteConfig = {
   language: "en",
+  IAM: "I'm",
+  greeting : "Hello! 👋",
   name: "Antonin Sylvestre",
   title: "Generalist Programmer (C++ / Unreal) & Software Engineer",
   description: "Portfolio of Antonin Sylvestre",
@@ -17,6 +19,7 @@ export const enSiteConfig : SiteConfig = {
   and put my skills to the test with two 48 hours Game Jams. After 5 years of software engineering studies, 
   I am now looking for the final transition into my professional career: an end-of-study internship.`,
   skills: ["C/C++", "Unreal Engine", "Python", "JAVA", "SQL", "HTML/CSS/JS"],
+  
   projects: [
     {
       name: "A Wee tank in the woods",
