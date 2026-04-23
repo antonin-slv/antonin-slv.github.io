@@ -1,4 +1,3 @@
-
 import type { SiteConfig } from "./config.ts";
 
 export const frSiteConfig : SiteConfig = {
@@ -20,56 +19,110 @@ export const frSiteConfig : SiteConfig = {
   et mis mes compétences à l'épreuve lors de deux Game Jams. Après 5 ans d'études en ingénierie informatique,
   je recherche aujourd'hui la denière brique pour concrétiser la transition vers ma carrière professionnelle. Un stage de fin d'étude.`,
   skills: ["C/C++", "Unreal Engine", "Python", "JAVA", "SQL", "HTML/CSS/JS"],
-  projects: [
+  games: [
     {
       name: "A Wee tank in the woods",
+      slug: "a-wee-tank",
+      short_desc: "Mon premier jeu ! Jeu de tank arcade en forêt réalisé avec Unreal Engine 5.",
       description:
         `Des bûcherons abattent les arbres de la forêt. Le petit tank que vous ête en tant que joueur, tente de les arrêter,
         mais non sans résistance. C'est le premier jeu que j'ai réalisé avec Unreal Engine après deux prototypes : un casse brique et un bomberman.
      `,
-      imageSrc: "/images/AWeeTank.png",
+      imageSrc: "AWeeTank.png",
       link: "https://antonin-slv.itch.io/a-wee-tank",
       skills: ["UE5", "C++", "Perforce"],
+
+      youtubeId: "Ijm4fshrnnU",
+      bannerSrc: "AWeeTank.png",
+      contributions : [
+        "Conception et développement du gameplay principal, déplacement, visée",
+        "Aide aux autres membres de l'équipe : gestion des collisions des arbres, optimisation de l'IA...",
+        "Création de vfx et recherche de sons pour le tank"
+      ]
     },
     {
-      name: "Project Teapot - En cours",
+      name: "Project Teapot",
+      slug: "project-teapot",
+      short_desc: "Puzzle game innovant alternant entre 2D et 3D avec mode multijoueur.",
       description:
         `Jeu où le joueur doit alterner entre la 3D et la 2D pour résoudre des énigmes.
         Petite touche d'originalité : le monde 3D est projeté sur le plan du joueur 2D.
         Le tout fonctionne également en réseau.`,
-      link: "",
-      imageSrc: "/images/teapot.png",
+      link: "https://blova.itch.io/teapot-game",
+      imageSrc: "teapot.png",
       skills: ["UE5", "C++", "Perforce"],
+
+      youtubeId: "zNYiPei6QR4",
+      bannerSrc: "teapot.png",
+      contributions : [
+        "Création du système d'animation du personnage en 2D, et des animations 2D en elles mêmes",
+        "Travail collaboratif sur les divers systèmes de gameplay",
+        "Remplissage des niveaux avec des assets"
+      ]
     },
     {
-      name: "Juste le boat - RL learning (IA)",
-      imageSrc: "/images/the_boat.gif",
+      name: "Juste le boat (IA)",
+      slug: "juste-le-boat",
+      short_desc: "Jeu de pirates (ArrGH !) où le joueur joue contre des RL-agents.",
+      imageSrc: "the_boat.gif",
       description:
         `Un projet Godot où nous avons implémenté la librairie godot-rl-agents
-        pour entraîner une IA à contrôler un bateau dans un environnement 2D.
+        afin d'entraîner une IA à contrôler un bateau dans un environnement 2D.
         Elle sert d'adversaire dans un jeu où le joueur doit capturer toutes les îles pour gagner la partie.
         `,
       link: "https://github.com/OtchiTan/juste-le-boat-en-faite",
-      skills: ["Godot", "Python", "PyTorch"]
+      skills: ["Godot", "Python", "PyTorch"],
+
+      youtubeId: "3t4aVoIdeTM",
+      bannerSrc: "the_boat.gif",
+
+      contributions : [
+        "Implémentation et customisation de la librairie godot-rl-agents pour Godot",
+        "Définition des informations d'état et des récompenses pour l'agent IA",
+        "Entraînement de l'agent et ajustement des hyperparamètres pour améliorer ses performances"
+      ],
     },
     {
-      name: "Le nectar des étoiles - Game Jam",
+      name: "Le nectar des étoiles",
+      slug: "nectar-des-etoiles",
+      short_desc: "Jeu narratif dans une station spatiale vainqueur de la WonderJam d'hiver 2026.",
       description:
         `Jeu créé en 48 heures durant la WonderJam d'hiver 2026, où il a obtenu la première place face à 13 autres équipes.
-        C'est un jeu narratif où vous incarnez un employé de la station spatiale Oasis, où est créée la fameuse boisson.
+        Le nectar des étoiles est un jeu narratif où vous incarnez un employé de la station spatiale Oasis où est créée la fameuse boisson.
         Évidemment, tout ne se passera pas comme prévu.`,
       link: "https://blova.itch.io/nectar-des-etoiles",
-      imageSrc: "/images/nectar_des_etoiles.png",
-      skills: ["UE5", "C++", "Perforce"]
+      imageSrc: "nectar_des_etoiles.png",
+      skills: ["UE5", "C++", "Perforce"],
+
+      bannerSrc: "nectar_des_etoiles.png",
+      contributions : [
+        "Conception et développement du système de déplacement en 0G",
+        "Focus sur les feedbacks (le son) pour rendre le déplacement fluide et agréable",
+        "Échange de quelques heures de sommeil contre beaucoup de fun pendant la jam"
+      ],
+      gallery: [
+        "nectar_des_etoiles.png",
+      ],
     },
+  ],
+  projects: [
     {
       name: "Handmade Hero & Rasterisation",
+      slug: "handmade-hero",
+      short_desc: "Visualiseur 3D minimaliste développé en C pour explorer les bases du rendu.",
       description: `J'ai suivis le début du tutoriel 'Handmade Hero' (épisodes 1 à 14) de Casey Muratori.
       Ensuite je me suis laissé distraire pour créer un visualiseur 3D minimaliste, uniquement en C et avec l'API Windows.
       Ce projet m'a permis d'explorer les fondements du rendu 3D, et du développement sur windows.`,
       link: "https://github.com/antonin-slv/handmade",
-      imageSrc: "/images/handmade.png",
+      imageSrc: "handmade.png",
       skills: ["C", "Windows API"], 
+      bannerSrc: "handmade.png",
+
+        contributions : [
+        "Implémentation d'un rasterizer logiciel from scratch, incluant le remplissage de triangles et le depth buffering",
+        "Gestion de l'input utilisateur et de la fenêtre avec l'API Windows",
+        "Approfondissement de mes connaissances en graphismes 3D et en programmation bas niveau"
+      ]
     },
   ],
   experience: [

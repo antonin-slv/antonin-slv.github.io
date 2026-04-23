@@ -4,7 +4,7 @@ import type { Props } from "../config";
 import { Image } from "astro:assets";
 const { siteConfig } = Astro.props as Props;
 
-const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+const hasProjects = siteConfig.games && siteConfig.games.length > 0;
 
 // Chargement dynamique des images
 const ImportedImages = import.meta.glob<{ default: ImageMetadata }>('../images/*/*.{jpeg,jpg,png,gif}');
@@ -15,7 +15,7 @@ const ImportedImages = import.meta.glob<{ default: ImageMetadata }>('../images/*
     <section id="projects" class="p-8 sm:p-12 md:p-16 lg:p-24 max-w-8xl mx-auto">
       <div class="mb-10 sm:mb-16">
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
-          {siteConfig?.language === "fr" ? "Mes Autres Projets" : "My other Projects"}
+          {siteConfig?.language === "fr" ? "Mes Jeux" : "My Games"}
         </h2>
         <div
           class="w-[75px] h-[5px] mt-4 rounded-full"
@@ -24,16 +24,23 @@ const ImportedImages = import.meta.glob<{ default: ImageMetadata }>('../images/*
       </div>
 
       <div class="flex flex-wrap justify-center gap-8">
-        {siteConfig.projects.map((project) => {
-          const linkProps = { href: "/" + siteConfig.language + `/projects/${project.slug}` };
+        {siteConfig.games?.map((project) => {
+
+          const Component = project.slug ? "a" : "div";
+          const linkProps = project.slug
+            ? {
+                href: "/" + siteConfig.language + `/projects/${project.slug}`, 
+              }
+            : {};
           
           const projectHasImage = project?.imageSrc && ImportedImages["../images/"+ project.slug + "/" + project.imageSrc];
           
           return (
-            <a
+            <Component
               {...linkProps}
               class={`flex-none w-[400px] flex flex-col bg-white rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300
-                ${"hover:shadow-xl hover:border-gray-300 hover:-translate-y-1"}`}
+                ${"hover:shadow-xl hover:border-gray-300 hover:-translate-y-1"
+              }`}
             >
               {/* Zone Image */}
               {projectHasImage ? (

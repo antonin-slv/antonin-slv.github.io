@@ -21,12 +21,21 @@ interface Social {
   github?: string;
 }
 
-interface Project {
+export interface Project {
+  slug: string;
   name: string;
   description: string;
+  short_desc: string;
   link?: string;
   skills?: string[];
-  imageSrc?: string;  
+  imageSrc?: string;
+
+  // --- Champs spécifiques pour la page Projet ---
+  bannerSrc?: string;
+  about?: string;
+  contributions?: string[];
+  youtubeId?: string;
+  gallery?: string[];
 }
 
 // L'interface principale
@@ -42,6 +51,7 @@ export interface SiteConfig {
   skills: string[];
   social: Social;
   projects: Project[];
+  games?: Project[]; // Optionnel, pour différencier les jeux des autres projets
   experience: Experience[];
   education: Education[];
 }

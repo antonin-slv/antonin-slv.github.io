@@ -20,56 +20,103 @@ export const enSiteConfig : SiteConfig = {
   I am now looking for the final transition into my professional career: an end-of-study internship.`,
   skills: ["C/C++", "Unreal Engine", "Python", "JAVA", "SQL", "HTML/CSS/JS"],
   
-  projects: [
+  games: [
     {
       name: "A Wee tank in the woods",
+      slug: "a-wee-tank",
+      short_desc: "My first complete game! An arcade tank game in the woods made with Unreal Engine 5.",
       description:
         `Lumberjacks are cutting down the forest. As a little tank, you try to stop them, 
         but not without resistance. This is the first complete game I made with Unreal Engine, 
         building upon the knowledge built with previous prototypes (a brick breaker and a bomberman).`,
       link: "https://antonin-slv.itch.io/a-wee-tank",
-      imageSrc: "/images/AWeeTank.png",
+      imageSrc: "AWeeTank.png",
       skills: ["UE5", "C++", "Perforce"],
+      youtubeId: "Ijm4fshrnnU",
+      bannerSrc: "AWeeTank.png",
+      contributions : [
+        "Creation of the main gameplay :  movement and aiming",
+        "Helped other team members : tree collision management, AI optimization...",
+        "Created VFX and researched sounds for the tank"
+      ]
     },
     {
-      name: "Project Teapot - In progress",
+      name: "Project Teapot",
+      slug: "project-teapot",
+      short_desc: "Innovative puzzle game alternating between 2D and 3D with multiplayer mode.",
       description:
         `A puzzle game where the player must alternate between 3D and 2D. 
         The twist: the 3D world is projected onto the 2D player's  plane. 
         The entire game is fully functional over the network.`,
-      link: "",
-      imageSrc: "/images/teapot.png",
+      link: "https://blova.itch.io/teapot-game",
+      imageSrc: "teapot.png",
       skills: ["UE5", "C++", "Perforce"],
+      youtubeId: "zNYiPei6QR4",
+      bannerSrc: "teapot.png",
+      contributions : [
+        "Created the 2D character animation system, and the 2D animations themselves",
+        "Collaborative work on various gameplay systems",
+        "Filled the levels with assets"
+      ]
     },
     {
-      name: "Juste le boat - RL learning (IA)",
+      name: "Juste le boat (AI)",
+      slug: "juste-le-boat",
+      short_desc: "Game project where we implemented RL agents to control a boat in a 2D environment.",
       description:
         `A Godot project where we implemented the godot-rl-agents library 
         to train an AI to control a boat in a 2D environment. It serves as an opponent 
         in a game where the player must capture all the islands to win.`,
 
       link: "https://github.com/OtchiTan/juste-le-boat-en-faite",
-      imageSrc: "/images/the_boat.gif",
-      skills: ["Godot", "Python", "PyTorch"]
+      imageSrc: "the_boat.gif",
+      skills: ["Godot", "Python", "PyTorch"],
+
+      youtubeId: "3t4aVoIdeTM",
+      bannerSrc: "the_boat.gif",
+      contributions : [
+        "Implemented and customized the godot-rl-agents library for Godot",
+        "Designed what the AI should see, know and learned, and trained it",
+      ]
     },
     {
-      name: "Le nectar des étoiles - Game Jam",
+      name: "Le nectar des étoiles",
+      slug: "nectar-des-etoiles",
+      short_desc: "Narrative game created in 48h during the Winter WonderJam 2026, taking first place.",
       description:
-        `Created in 48 hours during the 2026 Winter WonderJam, taking first place against 13 other teams. 
+        `Created in 48 hours during the 2026 Winter WonderJam (the UQAC's GameJam), taking first place against 13 other teams. 
         It's a narrative game where you play an employee of the Oasis space station, 
         where the famous drink is produced. Naturally, things don't go as planned. nb : Oasis is a French energy drink brand.`,
       link: "https://blova.itch.io/nectar-des-etoiles",
-      imageSrc: "/images/nectar_des_etoiles.png",
-      skills: ["UE5", "C++", "Perforce"]
-    },
+      imageSrc: "nectar_des_etoiles.png",
+      skills: ["UE5", "C++", "Perforce"],
+
+      bannerSrc: "nectar_des_etoiles.png",
+      contributions : [
+        "Designed and implemented the 0G movement system",
+        "Focused on adding user feedback with SFX",
+        "Collectively lost a lot of sleep and had fun during the jam"
+      ]
+    }
+  ],
+  projects: [
     {
       name: "Handmade Hero & Rasterization",
+      slug: "handmade-hero",
+      short_desc: "A 3D visualizer built from scratch in C using the Windows API, inspired by Handmade Hero.",
       description: `I followed the beginning of Casey Muratori's 'Handmade Hero' series (episodes 1-14), 
       then pivoted to build a minimalistic 3D visualizer from scratch using only C and the Windows API. 
       This project allowed me to explore the fundamentals of 3D rendering and low-level Windows development.`,
       link: "https://github.com/antonin-slv/handmade",
-      imageSrc: "/images/handmade.png",
+      imageSrc: "handmade.png",
       skills: ["C", "Windows API"], 
+
+      bannerSrc: "handmade.png",
+      contributions : [
+        "Implemented a software rasterizer from scratch, including triangle filling and depth buffering",
+        "Handled user input and window management using the Windows API",
+        "Gained a deeper understanding of 3D graphics fundamentals and low-level programming"
+      ]
     },
   ],
   experience: [
