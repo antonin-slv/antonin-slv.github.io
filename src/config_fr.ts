@@ -121,7 +121,21 @@ Nous avons obtenu une mention honorable pour ce jeu, et nous nous sommes beaucou
         "Création et modifications d'assets 3D avec blender",
         "A aidé les autres membres avec du peer programming sur divers aspects du projet",
       ]
-    }
+    },
+    {
+      name: "TGC - F1 2023",
+      slug: "tgc-f1",
+      short_desc: "Jeu de F1 en 2D avec éditeur de circuit, réalisé en C++ avec SFML pour linux",
+      description: `Créé dans le cadre d'un cours de programmation, ce jeu de course de F1 vous met au volant d'une voiture de Formule 1 sur un circuit sinueux. Il possède également un éditeur de circuit pour créer vos propres pistes. Ne tourne que sous linux.`,
+      link: "https://github.com/antonin-slv/TGC-F1",
+      imageSrc: "tgc_f1.png",
+      bannerSrc: "tgc_f1.png",
+      skills: ["C/C++", "SFML", "git"],
+      contributions : [
+        "Conception du jeu de course, avec la physique, les contrôles et l'intégration de SFML",
+        "Création de l'éditeur de circuit, permettant aux joueurs de concevoir leurs propres pistes",
+      ]
+    },
   ],
   projects: [
     {
@@ -142,34 +156,52 @@ Nous avons obtenu une mention honorable pour ce jeu, et nous nous sommes beaucou
         "Approfondissement de mes connaissances en graphismes 3D et en programmation bas niveau"
       ]
     },
-{
-  name: "Automates Cellulaire",
-  slug: "automate-cellulaire",
-  short_desc: "Simulation de divers automates cellulaires comme le jeux de la vie ou des feux de forêt.",
-  description: "",
-  bannerSrc: "Menu.png",
-  about: 
-    ` Réalisé en java dans le cadre d'un cours de APO (Algorithmique et Programmation Orientée Objet),
-    ce projet fait vivre divers algorithmes d'automates cellulaires comme le célèbre jeu de la vie ou des feux de forêt.
-    Le tout est paramétrable, la taille de la grille et les voisinages pouvant être modifiés à la volée.
-    `,
-  
-  contributions: [
-    "Conception de l'architecture logicielle (Séparation claire entre le moteur logique et le rendu visuel).",
-    "Conception de moteurs de règles (comme la somme ou la moyenne)", 
-  ],
-  
-  // youtubeId: "TON_ID_YOUTUBE", // Décommente si tu as une vidéo !
-  gallery: [
-    "jdlv_gof.gif",
-    "forest.gif",
-    "cross_avg.gif",
-  ],
-  
-  link: "https://github.com/antonin-slv/AutomateCellulaire",
-  imageSrc: "cover.png",
-  skills: ["Java", "Algorithmie", "gradle"]
-}
+    {
+      name: "Automates Cellulaire",
+      slug: "automate-cellulaire",
+      short_desc: "Simulation de divers automates cellulaires comme le jeux de la vie ou des feux de forêt.",
+      description: "",
+      bannerSrc: "Menu.png",
+      about: 
+        ` Réalisé en java dans le cadre d'un cours de APO (Algorithmique et Programmation Orientée Objet),
+        ce projet fait vivre divers algorithmes d'automates cellulaires comme le célèbre jeu de la vie ou des feux de forêt.
+        Le tout est paramétrable, la taille de la grille et les voisinages pouvant être modifiés à la volée.
+        `,
+      
+      contributions: [
+        "Conception de l'architecture logicielle (Séparation claire entre le moteur logique et le rendu visuel).",
+        "Conception de moteurs de règles (comme la somme ou la moyenne)", 
+      ],
+      
+      // youtubeId: "TON_ID_YOUTUBE", // Décommente si tu as une vidéo !
+      gallery: [
+        "jdlv_gof.gif",
+        "forest.gif",
+        "cross_avg.gif",
+      ],
+      
+      link: "https://github.com/antonin-slv/AutomateCellulaire",
+    imageSrc: "cover.png",
+    skills: ["Java", "Algorithmie", "gradle"]
+  },
+  {
+    name: "Processeur",
+    slug: "proc",
+    short_desc: "Conception d'un processeur simple sur Logisim avec un langage d'assemblage personnalisé.",
+    description: `Dans le cadre d'un cours d'architecture des ordinateurs, nous avons conçu un processeur simple sur Logisim.
+    Nous avons également créé un langage d'assemblage personnalisé pour programmer ce processeur.
+    Ce projet m'a permis de comprendre les bases du fonctionnement d'un processeur et de l'architecture des ordinateurs.`,
+    link: "https://github.com/Blova-TB/Processeur-Logisim",
+    imageSrc: "architecture.png",
+    bannerSrc: "stack.png",
+    skills: ["Logisim", "Architecture des ordinateurs", "Assembleur"],
+
+    contributions : [
+      "Conception de l'architecture du processeur, incluant les unités de contrôle, les registres et l'ALU",
+      "Développement du langage d'assemblage personnalisé",
+      
+    ]
+  }
   ],
   experience: [
     {

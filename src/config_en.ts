@@ -116,6 +116,20 @@ export const enSiteConfig : SiteConfig = {
         "Helped everybody with tecnical issues",
         "Had no PC able to run UE5, but it didn't stop me from helping !"
       ]
+    },
+    {
+      name: "TGC - F1 2023",
+      slug: "tgc-f1",
+      short_desc: "A 2D F1 racing game with a track editor, made in C++ for linux with SFML.",
+      description: `Created in the context of a programming course, this F1 racing game puts you behind the wheel of a Formula 1 car on a winding track. It also features a track editor to create your own races.`,
+      link: "https://github.com/antonin-slv/TGC-F1",
+      imageSrc: "tgc_f1.png",
+      bannerSrc: "tgc_f1.png",
+      skills: ["C/C++", "SFML", "git"],
+      contributions : [
+        "Conception of the game, with physics, controls and SFML integration",
+        "Creation of the track editor, allowing players to design their own tracks"
+      ]
     }
   ],
   projects: [
@@ -158,7 +172,24 @@ export const enSiteConfig : SiteConfig = {
         "forest.gif",
         "cross_avg.gif",
       ],
-    }
+    },
+    {
+    name: "Processor",
+    slug: "proc",
+    short_desc: "Design of a simple processor on Logisim with a custom assembly language.",
+    description: `In the context of a computer architecture course, we designed a simple processor on Logisim.
+    We also created a custom assembly language to program this processor.
+    This project allowed me to understand the fundamentals of processor operation and computer architecture.`,
+    link: "https://github.com/Blova-TB/Processeur-Logisim",
+    imageSrc: "architecture.png",
+    bannerSrc: "stack.png",
+    skills: ["Logisim", "Computer Architecture", "Assembly Language"],
+
+    contributions : [
+      "Designed the processor architecture, including control units, registers, and the ALU",
+      "Developed the custom assembly language",
+    ]
+  }
   ],
   experience: [
     {
