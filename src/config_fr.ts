@@ -104,6 +104,24 @@ export const frSiteConfig : SiteConfig = {
         "nectar_des_etoiles.png",
       ],
     },
+    {
+      name: "MineScam",
+      slug: "minescam",
+      short_desc:"Un jeu de Game Jam où vous minez des ressources, fabriquez des objets non-contrefaits et les vendez",
+      description : `Créé en 48 heures durant la WonderJam d\'hiver 2025, MineScam est un jeu où vous minez des ressources pour fabriquer des objets
+Mais vous pouvez truquer leur qualité en les peignant avec le matériau demandé par le client.
+Nous avons obtenu une mention honorable pour ce jeu, et nous nous sommes beaucoup amusés à le faire !
+      `,
+       link: "https://alexandre-h.itch.io/minescam",
+      imageSrc: "minescam.png",
+      bannerSrc: "minescam.png",
+      skills: ["UE5", "C++", "Perforce", "blender"],
+      contributions : [
+        "Brainstorming et conception du gameplay avec l'équipe",
+        "Création et modifications d'assets 3D avec blender",
+        "A aidé les autres membres avec du peer programming sur divers aspects du projet",
+      ]
+    }
   ],
   projects: [
     {
@@ -124,6 +142,34 @@ export const frSiteConfig : SiteConfig = {
         "Approfondissement de mes connaissances en graphismes 3D et en programmation bas niveau"
       ]
     },
+{
+  name: "Automates Cellulaire",
+  slug: "automate-cellulaire",
+  short_desc: "Simulation de divers automates cellulaires comme le jeux de la vie ou des feux de forêt.",
+  description: "",
+  bannerSrc: "Menu.png",
+  about: 
+    ` Réalisé en java dans le cadre d'un cours de APO (Algorithmique et Programmation Orientée Objet),
+    ce projet fait vivre divers algorithmes d'automates cellulaires comme le célèbre jeu de la vie ou des feux de forêt.
+    Le tout est paramétrable, la taille de la grille et les voisinages pouvant être modifiés à la volée.
+    `,
+  
+  contributions: [
+    "Conception de l'architecture logicielle (Séparation claire entre le moteur logique et le rendu visuel).",
+    "Conception de moteurs de règles (comme la somme ou la moyenne)", 
+  ],
+  
+  // youtubeId: "TON_ID_YOUTUBE", // Décommente si tu as une vidéo !
+  gallery: [
+    "jdlv_gof.gif",
+    "forest.gif",
+    "cross_avg.gif",
+  ],
+  
+  link: "https://github.com/antonin-slv/AutomateCellulaire",
+  imageSrc: "cover.png",
+  skills: ["Java", "Algorithmie", "gradle"]
+}
   ],
   experience: [
     {

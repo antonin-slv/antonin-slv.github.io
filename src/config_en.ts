@@ -97,6 +97,25 @@ export const enSiteConfig : SiteConfig = {
         "Focused on adding user feedback with SFX",
         "Collectively lost a lot of sleep and had fun during the jam"
       ]
+    },
+    {
+      name: "MineScam",
+      slug: "minescam",
+      short_desc: "A game Jam game where you mine ressources, craft really honest items and sell them",
+      description:
+        `Created in 48 hours during the Winter WonderJam 2025, MineScam is a game where you mine ressources to craft items...
+        But you can fake the quality of the objects by painting them with the material the client asked.
+        We got an honorable mention for this game, and it was a lot of fun to make!`,
+       link: "https://alexandre-h.itch.io/minescam",
+      imageSrc: "minescam.png",
+      bannerSrc: "minescam.png",
+      skills: ["UE5", "C++", "Perforce", "blender"],
+      contributions : [
+        "Brainstormed with the team",
+        "Made and modified various 3D assets",
+        "Helped everybody with tecnical issues",
+        "Had no PC able to run UE5, but it didn't stop me from helping !"
+      ]
     }
   ],
   projects: [
@@ -118,6 +137,28 @@ export const enSiteConfig : SiteConfig = {
         "Gained a deeper understanding of 3D graphics fundamentals and low-level programming"
       ]
     },
+    {
+      name: "Cellular Automaton",
+      slug: "automate-cellulaire",
+      short_desc: "A flexible cellular automaton simulator in Java, with a modular architecture and javaFX interface.",
+      description: `Made in Java within the context of a course about Algorthimics and OOP,,
+    this project brings to life various cellular automaton algorithms such as forest fires or the famous Game of Life.
+    Everything is configurable, with the grid size and neighborhoods being modifiable on the fly.
+    `,
+  link: "https://github.com/antonin-slv/AutomateCellulaire",
+      imageSrc: "cover.png",
+      skills: ["Java", "Algorithmics", "Gradle"],
+      bannerSrc: "Menu.png",
+      contributions : [
+        "Designed the software architecture (Clear separation between the logic engine and the visual rendering).",
+        "Implemented rules (like sum or average)",
+      ],
+      gallery: [
+        "jdlv_gof.gif",
+        "forest.gif",
+        "cross_avg.gif",
+      ],
+    }
   ],
   experience: [
     {
