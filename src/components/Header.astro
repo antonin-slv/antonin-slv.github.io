@@ -1,6 +1,4 @@
 ---
-
-
 import { Icon } from "astro-icon/components";
 import type { SiteConfig } from "../config";
 
@@ -24,77 +22,69 @@ const ThemeBtnLabel = isFrench ? 'Thème' : 'Theme';
 
 <header
   id="header"
-  class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
 >
-  <nav class="max-w-7xl mx-auto px-8 py-4">
-    <ul class="flex items-center gap-8 justify-center">
-      <li>
-        <a
-          href={`${homePath}/#about`}
-          class="js-header-text text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium"
-        >
-          {siteConfig?.language === "fr" ? "À propos" : "About"}
-        </a>
-      </li>
-      {
-        hasProjects && (
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between md:justify-center">
+    
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors z-50 ml-auto"
+      aria-label="Menu"
+    >
+      <svg id="menu-icon-open" class="w-7 h-7 block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <svg id="menu-icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <nav 
+      id="nav-menu" 
+      class="absolute top-full left-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md md:backdrop-blur-none md:bg-transparent md:dark:bg-transparent md:static md:w-auto hidden md:block transition-all duration-300 border-b md:border-none border-gray-200/80 dark:border-gray-800/80"
+    >
+      {/* Modification du padding : pt-2 au lieu de p-6 pour remonter le menu */}
+      <ul class="flex flex-col md:flex-row items-center gap-6 md:gap-8 pt-2 pb-8 px-6 md:p-0">
+        <li>
+          <a href={`${homePath}/#about`} class="js-header-text text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium text-lg md:text-base">
+            {siteConfig?.language === "fr" ? "À propos" : "About"}
+          </a>
+        </li>
+        {hasProjects && (
           <li>
-            <a
-              href={`${homePath}/#projects`}
-              class="js-header-text text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium"
-            >
+            <a href={`${homePath}/#projects`} class="js-header-text text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium text-lg md:text-base">
               {siteConfig?.language === "fr" ? "Projets" : "Projects"}
             </a>
           </li>
-        )
-      }
-      {
-        hasExperience && (
+        )}
+        {hasExperience && (
           <li>
-            <a
-              href={`${homePath}/#experience`}
-              class="js-header-text text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium"
-            >
+            <a href={`${homePath}/#experience`} class="js-header-text text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium text-lg md:text-base">
               {siteConfig?.language === "fr" ? "Expérience" : "Experience"}
             </a>
           </li>
-        )
-      }
-      {
-        hasEducation && (
+        )}
+        {hasEducation && (
           <li>
-            <a
-              href={`${homePath}/#education`}
-              class="js-header-text text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium"
-            >
+            <a href={`${homePath}/#education`} class="js-header-text text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium text-lg md:text-base">
               {siteConfig?.language === "fr" ? "Formation" : "Education"}
             </a>
           </li>
-        )
-      }
-      <a
-        id="language-toggle"
-        href={LanguageChangeTargetUrl}
-        class="js-header-text ml-auto text-sm text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium inline-flex"
+        )}
+        
+        <li class="w-full h-px bg-gray-200 dark:bg-gray-700 md:hidden my-2"></li>
 
-        >
-        {LanguageBtnLabel} <Icon name={flagIcon} class="ml-2 h-5 w-5" />
-    
-      </a> 
+        <a id="language-toggle" href={LanguageChangeTargetUrl} class="js-header-text md:ml-auto text-base md:text-sm text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium inline-flex items-center">
+          {LanguageBtnLabel} <Icon name={flagIcon} class="ml-2 h-5 w-5" />
+        </a> 
 
-      <button
-        id="theme-toggle"
-        type="button"
-        class="js-header-text text-sm text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium inline-flex items-center gap-2"
-        aria-label={ThemeBtnLabel}
-      >
-        <span>{ThemeBtnLabel}</span>
-        <Icon id="theme-toggle-icon" name="mdi:weather-night" class="h-5 w-5" />
-      </button>
-
-
-    </ul>
-  </nav>
+        <button id="theme-toggle" type="button" class="js-header-text text-base md:text-sm text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium inline-flex items-center gap-2">
+          <span>{ThemeBtnLabel}</span>
+          <Icon id="theme-toggle-icon" name="mdi:weather-night" class="h-5 w-5" />
+        </button>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <script>
@@ -103,13 +93,52 @@ const ThemeBtnLabel = isFrench ? 'Thème' : 'Theme';
   const themeToggleButton = document.getElementById("theme-toggle");
   const header = document.getElementById("header");
   const headerTexts = document.querySelectorAll("#header .js-header-text");
+  
+  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+  const navMenu = document.getElementById("nav-menu");
+  const menuIconOpen = document.getElementById("menu-icon-open");
+  const menuIconClose = document.getElementById("menu-icon-close");
 
   const defaultTextClasses = ["text-gray-700", "hover:text-black"];
   const topLightTextClasses = ["text-white", "hover:text-gray-100"];
 
-  const syncHeaderTopTextContrast = () => {
-    const isProjectPage = window.location.pathname.includes("/projects/");
-    if (!isProjectPage) {
+  const updateHeaderStyle = () => {
+    const isMenuOpen = navMenu && !navMenu.classList.contains("hidden");
+    const isScrolled = window.scrollY > 50;
+
+    // Si on a scrollé OU si le menu mobile est ouvert, on active le flou et la couleur
+    if (isScrolled || (isMenuOpen && window.innerWidth < 768)) {
+      header?.classList.add(
+        "bg-white/90",
+        "dark:bg-gray-900/90",
+        "backdrop-blur-md",
+        "border-b",
+        "border-gray-200/80",
+        "dark:border-gray-700/80"
+      );
+    } else {
+      header?.classList.remove(
+        "bg-white/90",
+        "dark:bg-gray-900/90",
+        "backdrop-blur-md",
+        "border-b",
+        "border-gray-200/80",
+        "dark:border-gray-700/80"
+      );
+    }
+    syncHeaderTopTextContrast(isMenuOpen);
+  };
+
+  const syncHeaderTopTextContrast = (isMenuOpen) => {
+    const isProjectPage = window.location.pathname.includes("/projets/") || window.location.pathname.includes("/projects/");
+    if (!isProjectPage) return;
+
+    // Si le menu est ouvert sur mobile, on garde le texte sombre car le fond devient clair/flou
+    if (isMenuOpen && window.innerWidth < 768) {
+      headerTexts.forEach((item) => {
+        item.classList.remove(...topLightTextClasses);
+        item.classList.add(...defaultTextClasses);
+      });
       return;
     }
 
@@ -122,71 +151,34 @@ const ThemeBtnLabel = isFrench ? 'Thème' : 'Theme';
         item.classList.remove(...defaultTextClasses);
         item.classList.add(...topLightTextClasses);
       });
-      return;
+    } else {
+      headerTexts.forEach((item) => {
+        item.classList.remove(...topLightTextClasses);
+        item.classList.add(...defaultTextClasses);
+      });
     }
-
-    headerTexts.forEach((item) => {
-      item.classList.remove(...topLightTextClasses);
-      item.classList.add(...defaultTextClasses);
-    });
   };
+
+  if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener("click", () => {
+      navMenu.classList.toggle("hidden");
+      menuIconOpen?.classList.toggle("hidden");
+      menuIconClose?.classList.toggle("hidden");
+      updateHeaderStyle();
+    });
+  }
 
   const applyTheme = () => {
     const isDark = document.documentElement.classList.contains("dark");
     const nextTheme = isDark ? "light" : "dark";
-
     document.documentElement.classList.toggle("dark", nextTheme === "dark");
-    document.documentElement.setAttribute("data-theme", nextTheme);
     localStorage.setItem(storageKey, nextTheme);
-
-    if (headerThemeIcon) {
-      const iconName = nextTheme === "dark" ? "mdi:white-balance-sunny" : "mdi:weather-night";
-      headerThemeIcon.setAttribute("data-icon", iconName);
-      headerThemeIcon.setAttribute("icon", iconName);
-    }
-
-    syncHeaderTopTextContrast();
+    updateHeaderStyle();
   };
 
-  if (themeToggleButton) {
-    themeToggleButton.addEventListener("click", () => {
-      applyTheme();
-    });
-  }
+  if (themeToggleButton) themeToggleButton.addEventListener("click", applyTheme);
 
-  const syncThemeIcon = () => {
-    const isDark = document.documentElement.classList.contains("dark");
-    if (headerThemeIcon) {
-      const iconName = isDark ? "mdi:white-balance-sunny" : "mdi:weather-night";
-      headerThemeIcon.setAttribute("data-icon", iconName);
-      headerThemeIcon.setAttribute("icon", iconName);
-    }
-  };
-
-  syncThemeIcon();
-  syncHeaderTopTextContrast();
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 100) {
-      header?.classList.add(
-        "bg-white/80",
-        "dark:bg-gray-900/80",
-        "backdrop-blur-sm",
-        "border-b",
-        "border-gray-200/80",
-        "dark:border-gray-700/80"
-      );
-    } else {
-      header?.classList.remove(
-        "bg-white/80",
-        "dark:bg-gray-900/80",
-        "backdrop-blur-sm",
-        "border-b",
-        "border-gray-200/80",
-        "dark:border-gray-700/80"
-      );
-    }
-
-    syncHeaderTopTextContrast();
-  });
+  window.addEventListener("scroll", updateHeaderStyle);
+  // Appel initial
+  updateHeaderStyle();
 </script>
