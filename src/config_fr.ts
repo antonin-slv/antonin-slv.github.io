@@ -17,27 +17,24 @@ export const frSiteConfig : SiteConfig = {
   Durant l'année 2025/2026, je me suis spécialisé dans le développement de jeux vidéo.
   Après avoir vu les fondamentaux, j'ai rapidement approfondi les problématiques réseau et l'optimisation des performances
   et mis mes compétences à l'épreuve lors de deux Game Jams. Après 5 ans d'études en ingénierie informatique,
-  je recherche aujourd'hui la denière brique pour concrétiser la transition vers ma carrière professionnelle. Un stage de fin d'étude.`,
+  je recherche aujourd'hui la dernière brique pour concrétiser la transition vers ma carrière professionnelle : un stage de fin d'étude.`,
   skills: ["C/C++", "Unreal Engine", "Python", "JAVA", "SQL", "HTML/CSS/JS"],
   games: [
     {
       name: "A Wee tank in the woods",
       slug: "a-wee-tank",
-      short_desc: "Mon premier jeu ! Jeu de tank arcade en forêt réalisé avec Unreal Engine 5.",
+      short_desc: "Jeu de tank arcade en forêt réalisé avec Unreal Engine 5.",
       description:
-        `Des bûcherons abattent les arbres de la forêt. Le petit tank que vous ête en tant que joueur, tente de les arrêter,
-        mais non sans résistance. C'est le premier jeu que j'ai réalisé avec Unreal Engine après deux prototypes : un casse brique et un bomberman.
-     `,
+        `Des bûcherons abattent les arbres de la forêt. Le petit tank contrôlé par le joueur tente de les arrêter malgré une résistance croissante. Premier projet complet sous Unreal Engine explorant le workflow de production.`,
       imageSrc: "AWeeTank.png",
       link: "https://antonin-slv.itch.io/a-wee-tank",
       skills: ["UE5", "C++", "Perforce"],
-
       youtubeId: "Ijm4fshrnnU",
       bannerSrc: "AWeeTank.png",
       contributions : [
-        "Conception et développement du gameplay principal, déplacement, visée",
-        "Aide aux autres membres de l'équipe : gestion des collisions des arbres, optimisation de l'IA...",
-        "Création de vfx et recherche de sons pour le tank"
+        "Conception et développement du gameplay du tank avec les mouvements et la visée)",
+        "Optimisation de l'IA des bûcherons et gestion des collisions environnementales.",
+        "Intégration du Sound Design pour les feedbacks du tank."
       ]
     },
     {
@@ -45,61 +42,51 @@ export const frSiteConfig : SiteConfig = {
       slug: "project-teapot",
       short_desc: "Puzzle game innovant alternant entre 2D et 3D avec mode multijoueur.",
       description:
-        `Jeu où le joueur doit alterner entre la 3D et la 2D pour résoudre des énigmes.
-        Petite touche d'originalité : le monde 3D est projeté sur le plan du joueur 2D.
-        Le tout fonctionne également en réseau.`,
+        `Un jeu d'énigmes où le joueur alterne entre 3D et 2D,avec une projection dynamique du monde 3D sur le plan du joueur.Le titre intègre une architecture réseau complète.`,
       link: "https://blova.itch.io/teapot-game",
       imageSrc: "teapot.png",
       skills: ["UE5", "C++", "Perforce"],
-
       youtubeId: "zNYiPei6QR4",
       bannerSrc: "teapot.png",
       contributions : [
-        "Création du système d'animation du personnage en 2D, et des animations 2D en elles mêmes",
-        "Travail collaboratif sur les divers systèmes de gameplay",
-        "Remplissage des niveaux avec des assets"
+        "Développement du système d'animation 2D et création des assets d'animation 2D.",
+        "Level dressing et intégration d'assets 3D au sein de l'environnement Unreal.",
+        "Développement collaboratif de systèmes de gameplay multijoueurs synchronisés."
       ]
     },
     {
       name: "Juste le boat (IA)",
       slug: "juste-le-boat",
-      short_desc: "Jeu de pirates (ArrGH !) où le joueur joue contre des RL-agents.",
+      short_desc: "Jeu de pirates (ArrGH !) en 2D avec agents entraînés par Reinforcement Learning.",
       imageSrc: "the_boat.gif",
       description:
-        `Un projet Godot où nous avons implémenté la librairie godot-rl-agents
-        afin d'entraîner une IA à contrôler un bateau dans un environnement 2D.
-        Elle sert d'adversaire dans un jeu où le joueur doit capturer toutes les îles pour gagner la partie.
-        `,
+        `Implémentation de la librairie godot-rl-agents pour entraîner une IA à naviguer et combattre en 2D. L'IA agit comme un adversaire stratégique pour la conquête d'îles.`,
       link: "https://github.com/OtchiTan/juste-le-boat-en-faite",
       skills: ["Godot", "Python", "PyTorch"],
-
       youtubeId: "3t4aVoIdeTM",
       bannerSrc: "the_boat.gif",
-
       contributions : [
-        "Implémentation et customisation de la librairie godot-rl-agents pour Godot",
-        "Définition des informations d'état et des récompenses pour l'agent IA",
-        "Entraînement de l'agent et ajustement des hyperparamètres pour améliorer ses performances"
+        "Implémentation et customisation de la librairie godot-rl-agents pour le moteur Godot.",
+        "Définition des fonctions de récompense et des vecteurs d'état pour l'entraînement.",
+        "Optimisation des hyperparamètres pour accroître les performances décisionnelles de l'agent."
       ],
     },
     {
       name: "Le nectar des étoiles",
       slug: "nectar-des-etoiles",
-      short_desc: "Jeu narratif dans une station spatiale vainqueur de la WonderJam d'hiver 2026.",
+      short_desc: "Jeu narratif vainqueur de la WonderJam d'hiver 2026.",
       description:
-        `Jeu créé en 48 heures durant la WonderJam d'hiver 2026, où il a obtenu la première place face à 13 autres équipes.
-        Le nectar des étoiles est un jeu narratif où vous incarnez un employé de la station spatiale Oasis où est créée la fameuse boisson.
-        Évidemment, tout ne se passera pas comme prévu.`,
+        `Développé en 48 heures durant la WonderJam d'hiver 2026, ce titre a remporté la 1ère place parmi 14 équipes.
+        Incarnez un employé d'une station spatiale produisant le fameux soda dans une ambiance spaciale.`,
       link: "https://blova.itch.io/nectar-des-etoiles",
       imageSrc: "nectar_des_etoiles.png",
       skills: ["UE5", "C++", "Perforce"],
-
       bannerSrc: "nectar_des_etoiles.png",
       contributions : [
-        "Conception et développement du système de déplacement en 0G",
-        "Focus sur les feedbacks (le son) pour rendre le déplacement fluide et agréable",
-        "Échange de quelques heures de sommeil contre beaucoup de fun pendant la jam"
-      ],
+        "Conception et implémentation technique du système de déplacement en apesanteur (0G).",
+        "Focus sur le polissage des mécaniques et l'intégration des feedbacks audio.",
+        "Échange d'heures de sommeil contre du fun pour le projet :D"
+      ],      
       gallery: [
         "nectar_des_etoiles.png",
       ],
@@ -107,37 +94,36 @@ export const frSiteConfig : SiteConfig = {
     {
       name: "MineScam",
       slug: "minescam",
-      short_desc:"Un jeu de Game Jam où vous minez des ressources, fabriquez des objets non-contrefaits et les vendez",
-      description : `Créé en 48 heures durant la WonderJam d\'hiver 2025, MineScam est un jeu où vous minez des ressources pour fabriquer des objets
-Mais vous pouvez truquer leur qualité en les peignant avec le matériau demandé par le client.
-Nous avons obtenu une mention honorable pour ce jeu, et nous nous sommes beaucoup amusés à le faire !
-      `,
+      short_desc:"Jeu de craft récompensé d'une mention honorable lors d'une Game Jam.",
+      description : `Réalisé en 48h, MineScam propose de miner et crafter des objets dont la qualité peut être falsifiée pour tromper le client.
+      Un projet focalisé sur l'humour et les mécaniques de craft`,
        link: "https://alexandre-h.itch.io/minescam",
       imageSrc: "minescam.png",
       bannerSrc: "minescam.png",
-      skills: ["UE5", "C++", "Perforce", "blender"],
+      skills: ["UE5", "C++", "Perforce", "Blender"],
       contributions : [
-        "Brainstorming et conception du gameplay avec l'équipe",
-        "Création et modifications d'assets 3D avec blender",
-        "A aidé les autres membres avec du peer programming sur divers aspects du projet",
+        "Gestion du pipeline d'export Blender vers Unreal Engine 5 et création d'assets 3D.",
+        "Peer-programming et debugging technique sur les divers systèmes du projet.",
+        "Participation active au brainstorming et au début d'équilibrage des mécaniques de jeu."
       ]
     },
     {
       name: "TGC - F1 2023",
       slug: "tgc-f1",
-      short_desc: "Jeu de F1 en 2D avec éditeur de circuit, réalisé en C++ avec SFML pour linux",
-      description: `Créé en 2023 dans le cadre d'un cours de programmation, ce jeu de course vous met au volant d'une voiture de Formule 1 sur des circuit très sinueux. Il possède également un éditeur de circuit pour créer vos propres pistes. A été débugué et porté sous windows en 2026.`,
+      short_desc: "Jeu de course 2D avec éditeur de circuits, développé en C++ (SFML).",
+      description: `Jeu de courses de Formule 1, incluant un éditeur de circuits complet.
+      Projet initialement sous Linux, porté et débugué sous Windows en 2026.`,
       link: "https://github.com/antonin-slv/TGC-F1",
       imageSrc: "tgc_f1.png",
       bannerSrc: "title.png",
-      skills: ["C/C++", "SFML", "git"],
+      skills: ["C/C++", "SFML", "Git"],
       gallery : [
         "/tgcf1_editor.mp4",
         "/tgcf1_game.webm"
       ],
       contributions : [
-        "Conception du jeu de course, avec la physique, les contrôles et l'intégration de SFML",
-        "Création de l'éditeur de circuit, permettant aux joueurs de concevoir leurs propres pistes",
+        "Développement du moteur physique, des contrôles et intégration de la SFML.",
+        "Architecture et création de l'éditeur de circuit persistant.",
       ]
     },
   ],
@@ -145,77 +131,62 @@ Nous avons obtenu une mention honorable pour ce jeu, et nous nous sommes beaucou
     {
       name: "Handmade Hero & Rasterisation",
       slug: "handmade-hero",
-      short_desc: "Visualiseur 3D minimaliste développé en C pour explorer les bases du rendu.",
-      description: `J'ai suivis le début du tutoriel 'Handmade Hero' (épisodes 1 à 14) de Casey Muratori.
-      Ensuite je me suis laissé distraire pour créer un visualiseur 3D minimaliste, uniquement en C et avec l'API Windows.
-      Ce projet m'a permis d'explorer les fondements du rendu 3D, et du développement sur windows.`,
+      short_desc: "Visualiseur 3D logiciel développé en C pur pour explorer les bases du rendu.",
+      description: `Originalement créé dans le cadre du tutoriel 'Handmade Hero'  par Casey Muratori,
+      ce projet consiste en la création d'un moteur de rendu 3D minimaliste sans API graphique externe, utilisant uniquement le C et l'API Windows.`,
       link: "https://github.com/antonin-slv/handmade",
       imageSrc: "handmade.png",
       skills: ["C", "Windows API"], 
       bannerSrc: "handmade.png",
-
-        contributions : [
-        "Implémentation d'un rasterizer logiciel from scratch, incluant le remplissage de triangles et le depth buffering",
-        "Gestion de l'input utilisateur et de la fenêtre avec l'API Windows",
-        "Approfondissement de mes connaissances en graphismes 3D et en programmation bas niveau"
+      contributions : [
+        "Implémentation d'un rasterizer logiciel incluant le remplissage de triangles et le depth buffering.",
+        "Gestion bas niveau de l'input et de la fenêtre via l'API Win32.",
+        "Approfondissement des concepts mathématiques (matrices, vecteurs, projections)."
       ]
     },
     {
-      name: "Automates Cellulaire",
+      name: "Automates Cellulaires",
       slug: "automate-cellulaire",
-      short_desc: "Simulation de divers automates cellulaires comme le jeux de la vie ou des feux de forêt.",
-      description: "",
+      short_desc: "Simulateur d'automates cellulaires (Jeu de la Vie, feux de forêt) sous JavaFX",
+      description: ".",
       bannerSrc: "Menu.png",
       about: 
-        ` Réalisé en java dans le cadre d'un cours de APO (Algorithmique et Programmation Orientée Objet),
-        ce projet fait vivre divers algorithmes d'automates cellulaires comme le célèbre jeu de la vie ou des feux de forêt.
-        Le tout est paramétrable, la taille de la grille et les voisinages pouvant être modifiés à la volée.
-        `,
-      
+        `Projet de cours (algorithmique orienté objet) permettant d'exécuter des automates cellulaires variés.
+        La taille de la grille et les voisinages sont modifiables en temps réel pour observer les changements de comportement systémique.`,
       contributions: [
-        "Conception de l'architecture logicielle (Séparation claire entre le moteur logique et le rendu visuel).",
-        "Conception de moteurs de règles (comme la somme ou la moyenne)", 
+        "Conception de l'architecture logicielle (séparation moteur logique / rendu visuel).",
+        "Développement de moteurs de règles modulaires.",
       ],
-      
-      // youtubeId: "TON_ID_YOUTUBE", // Décommente si tu as une vidéo !
-      gallery: [
-        "jdlv_gof.gif",
-        "forest.gif",
-        "cross_avg.gif",
-      ],
-      
+      gallery: ["jdlv_gof.gif", "forest.gif", "cross_avg.gif"],
       link: "https://github.com/antonin-slv/AutomateCellulaire",
-    imageSrc: "cover.png",
-    skills: ["Java", "Algorithmie", "gradle"]
-  },
-  {
-    name: "Processeur",
-    slug: "proc",
-    short_desc: "Conception d'un processeur simple sur Logisim avec un langage d'assemblage personnalisé.",
-    description: `Dans le cadre d'un cours d'architecture des ordinateurs, nous avons conçu un processeur simple sur Logisim.
-    Nous avons également créé un langage d'assemblage personnalisé pour programmer ce processeur.
-    Ce projet m'a permis de comprendre les bases du fonctionnement d'un processeur et de l'architecture des ordinateurs.`,
-    link: "https://github.com/Blova-TB/Processeur-Logisim",
-    imageSrc: "architecture.png",
-    bannerSrc: "stack.png",
-    skills: ["Logisim", "Architecture des ordinateurs", "Assembleur"],
-
-    contributions : [
-      "Conception de l'architecture du processeur, incluant les unités de contrôle, les registres et l'ALU",
-      "Développement du langage d'assemblage personnalisé",
-      
-    ]
-  }
+      imageSrc: "cover.png",
+      skills: ["Java", "Algorithmie", "Gradle"]
+    },
+    {
+      name: "Processeur",
+      slug: "proc",
+      short_desc: "Conception d'un processeur sur Logisim avec assembleur dédié.",
+      description: `Création complète d'un processeur fonctionnel sur Logisim accompagné
+      d'un langage d'assemblage personnalisé pour l'exécution de programmes.`,
+      link: "https://github.com/Blova-TB/Processeur-Logisim",
+      imageSrc: "architecture.png",
+      bannerSrc: "stack.png",
+      skills: ["Logisim", "Architecture", "Assembleur"],
+      contributions : [
+        "Conception de l'unité de contrôle, de l'ALU et de la gestion des registres.",
+        "Développement et spécification du langage d'assemblage personnalisé.",
+      ]
+    }
   ],
   experience: [
     {
       company: "Atos Lyon",
-      title: "Développement Fullstack - Stage",
+      title: "Ingénieur Développement Fullstack - Stage",
       dateRange: "Sept 2024 - Jan 2025",
       bullets: [
-        "Contribution au développement de MySI², le système d'information du service  informatique d'Enedis.",
-        "Travail en équipe au sein d'une organisation Scrum, acquisition d'expérience dans les méthodologies agiles.",
-        "Utilisation du framework Angular (TypeScript) et de Java Spring Boot pour enrichir la base de code.", 
+        "Développement de composants Angular (TypeScript) réutilisables pour le SI MySI² d'Enedis.",
+        "Création de requêtes SQL et enrichissement de la base de code Java Spring Boot.",
+        "Collaboration active en environnement Agile (Scrum) et participation aux diverses cérémonies.", 
       ],
     },
   ],
@@ -225,9 +196,9 @@ Nous avons obtenu une mention honorable pour ce jeu, et nous nous sommes beaucou
       degree: "Peip A - Parcours Informatique",
       dateRange: "2021 - 2023",
       achievements: [
-        "Cycle préparatoire intégré aux écoles d'ingénieurs, avec une spécialisation en informatique.",
-        "Apprentissage du PHP, C, Python, des bases du développement web et des fondamentaux de l'informatique.",
-        "Formation approfondie en mathématiques, physique, électronique et divers domaines de l'ingénierie."
+        "Cycle préparatoire intégré aux écoles d'ingénieurs.",
+        "Fondamentaux de l'informatique (Algorithmie, C, Python) et développement web.",
+        "Formation scientifique avancée (mathématiques, physique, électronique)."
       ],
     },
     {
@@ -235,23 +206,20 @@ Nous avons obtenu une mention honorable pour ce jeu, et nous nous sommes beaucou
       degree: "Diplôme d'Ingénieur en Informatique",
       dateRange: "2023 - 2026",
       achievements: [
-        "Accent sur les principes de développement logiciel (POO, SOLID, designs patterns...) ",
-        "Grande diversité de sujets : algorithmie, maths, cryptographie, théorie des graphes, optimisation, gestion de projets... ",
-        "Réalisation de plusieurs projets, incluant des applications web, un compilateur, la conception d'un processeur, et divers projets en Java.",
-        "Bonnes compétences en Java, C++, Python, SQL et des technologies web (HTML, CSS, JavaScript...).",
+        "Spécialisation en génie logiciel (POO, SOLID, Design Patterns).",
+        "Maîtrise de l'algorithmique complexe, de l'optimisation et de la gestion de projets.",
+        "Réalisation de nombreux projets (compilateur, processeur, applications web).",
       ],
     },
     {
-      school: "UQAC - Université Du Québec à Chicoutimi",
+      school: "UQAC - Chicoutimi, Canada",
       degree: "Maîtrise en Informatique - Spécialisation Jeux Vidéo",
       dateRange: "2025 - 2026",
       achievements: [
-        "Acquisition de bases solides en développement de jeux vidéo, en particulier sur Unreal Engine mais également Godot",
-        "Utilisation d'outils de travail collaboratif comme Perforce ou Git",
-        "Ouverture sur d'autres champs avec des cours d'optimisation et de parallélisation",
-        "2 Participations aux WonderJam (Game Jam), avec une première place et une mention honorable",
-        `Hackathon CONFORMiT x UQAC (48h): Création d'une application Next.js pour la sécurité hospitalière basé sur 
-        l'analyse de rapports d'incidents augmenté par un agent conversationnel`
+        "Bonnes compétences technique sur Unreal Engine 5 et Godot.",
+        "Maîtrise de la programmation réseau multijoueur et de l'IA.",
+        "Cours avancés en optimisation de performance et calcul parallèle (OpenMP, OpenCL).",
+        "Hackathon CONFORMiT : Développement d'un agent LLM conversationnel sous Next.js."
       ],
     },
   ],
