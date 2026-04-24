@@ -146,7 +146,7 @@ export const enSiteConfig : SiteConfig = {
       ]
     },
     {
-      name: "Automates Cellulaires",
+      name: "Cellular Automaton",
       slug: "automate-cellulaire",
       short_desc: "JavaFX simulator for cellular automata (Game of Life, forest fires).",
       description: ".",
@@ -164,7 +164,7 @@ export const enSiteConfig : SiteConfig = {
       skills: ["Java", "Algorithmics", "Gradle"]
     },
     {
-      name: "Processeur",
+      name: "Processor",
       slug: "proc",
       short_desc: "Design of a processor on Logisim with a dedicated assembler.",
       description: `Complete creation of a functional processor on Logisim accompanied
