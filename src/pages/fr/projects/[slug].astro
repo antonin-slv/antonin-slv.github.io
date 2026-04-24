@@ -1,7 +1,6 @@
 ---
-import "../../../styles/global.css";
 import { frSiteConfig } from "../../../config_fr";
-import { Image } from "astro:assets";
+import ProjectDetailPage from "../../../components/ProjectDetailPage.astro";
 
 export function getStaticPaths() {
   var projectPaths = frSiteConfig.projects.map((project) => ({
@@ -18,145 +17,15 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props;
-
-const imagePrefix = "../../../images/" + project.slug + "/";
-const ImportedImages = import.meta.glob<{ default: ImageMetadata }>('../../../**/*.{jpeg,jpg,png,gif}');
-const bannerImage = project.bannerSrc && ImportedImages[imagePrefix + project.bannerSrc];
 ---
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{project.name} | Portfolio Antonin Sylvestre</title>
-</head>
-<body class="bg-[#f8f9fa] text-gray-800 font-sans"> {/* Fond très clair, style clean */}
-
-  {/* Bouton retour discret */}
-  <div class="fixed top-6 left-6 z-50">
-      <a href="/fr/#projects" class="flex items-center gap-2 px-4 py-2 bg-gray-900/80 hover:bg-gray-900 text-white backdrop-blur-md rounded-full transition-all text-sm font-semibold shadow-lg">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-          Retour
-      </a>
-  </div>
-
-  {/* --- BANDEAU HERO (Style plus fin) --- */}
-  <section class="relative w-full h-[35vh] bg-gray-900 flex items-center justify-center border-b-[6px]" style={`border-color: ${frSiteConfig.accentColor}`}>
-    {bannerImage && (
-      <Image 
-        src={bannerImage()} 
-        alt={`Bandeau ${project.name}`}
-        class="absolute inset-0 w-full h-full object-cover opacity-30"
-      />
-    )}
-    <div class="relative z-10 text-center px-4">
-      <h1 class="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight uppercase">
-        {project.name}
-      </h1>
-      <div class="flex flex-wrap justify-center gap-2 mt-4">
-        {project.skills?.map((skill) => (
-          <span class="px-3 py-1 bg-white text-gray-900 rounded uppercase text-xs font-bold tracking-wider">
-            {skill}
-          </span>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  {/* --- CONTENU PRINCIPAL --- */}
-  <main class="max-w-4xl mx-auto px-6 py-12 md:py-16 space-y-16">
-    
-    {/* 1. INTRO & BOUTON JOUER */}
-    <section class="text-center space-y-6">
-      <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-        {project.about || project.description}
-      </p>
-      
-      {project.link && (
-        <a href={project.link} target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded shadow-md transition-colors">
-          Voir le projet / Jouer
-        </a>
-      )}
-    </section>
-
-    {/* 2. VIDÉO MISE EN AVANT (Façon Amy Portfolio) */}
-    {project.youtubeId && (
-      <section class="w-full aspect-video rounded-lg overflow-hidden shadow-2xl bg-black">
-        <iframe 
-          width="100%" height="100%" 
-          src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1`} 
-          title="YouTube video player" frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
-      </section>
-    )}
-
-    {/* 3. CONTRIBUTIONS DÉTAILLÉES */}
-    {project.contributions && project.contributions.length > 0 && (
-      <section>
-        <h2 class="text-3xl font-black text-gray-900 mb-8 border-b-2 pb-4" style={`border-color: ${frSiteConfig.accentColor}`}>
-          Mes Contributions
-        </h2>
-        
-        {/* On affiche les contributions dans une grille s'il y en a beaucoup */}
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-          {project.contributions.map((contrib) => (
-            <li class="flex items-start gap-3">
-              <svg class="w-6 h-6 mt-0.5 flex-shrink-0" style={`color: ${frSiteConfig.accentColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span class="text-gray-700 leading-relaxed">{contrib}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-    )}
-
-    {/* 4. GALERIE D'IMAGES (Optionnelle, en bas de page) */}
-    {project.gallery && project.gallery.length > 0 && (
-    <section>
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">Galerie</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {project.gallery.map((mediaSrc) => {
-          // 1. On vérifie si la chaîne de caractères se termine par .mp4 ou .webm
-          const isVideo = mediaSrc.endsWith('.mp4') || mediaSrc.endsWith('.webm');
-
-          // 2. CAS VIDÉO
-          if (isVideo) {
-            return (
-              <div class="aspect-video rounded-lg overflow-hidden shadow-md border border-gray-200 bg-black">
-                <video 
-                  src={mediaSrc} 
-                  class="w-full h-full object-cover"
-                  autoplay 
-                  loop 
-                  muted 
-                  playsinline
-                />
-              </div>
-            );
-          } 
-          
-          // 3. CAS IMAGE
-          else {
-            const galleryImg = ImportedImages[imagePrefix + mediaSrc];
-            return galleryImg ? (
-              <div class="aspect-video rounded-lg overflow-hidden shadow-md border border-gray-200 bg-gray-100">
-                <Image 
-                  src={galleryImg()} 
-                  alt={`Capture de ${project.name}`}
-                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            ) : null;
-          }
-        })}
-      </div>
-    </section>
-  )}
-
-  </main>
-</body>
-</html>
+<ProjectDetailPage
+  project={project}
+  siteConfig={frSiteConfig}
+  titleSuffix="Portfolio Antonin Sylvestre"
+  backHref="/fr/#projects"
+  backLabel="Retour"
+  playLabel="Voir le projet / Jouer"
+  contributionsTitle="Mes Contributions"
+  galleryTitle="Galerie"
+/>

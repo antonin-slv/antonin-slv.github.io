@@ -1,0 +1,152 @@
+---
+import type { Project, SiteConfig } from "../config";
+import { Image } from "astro:assets";
+import SiteTemplate from "../layouts/SiteTemplate.astro";
+
+interface Props {
+  project: Project;
+  siteConfig: SiteConfig;
+  titleSuffix: string;
+  backHref: string;
+  backLabel: string;
+  playLabel: string;
+  contributionsTitle: string;
+  galleryTitle: string;
+}
+
+const {
+  project,
+  siteConfig,
+  titleSuffix,
+  backHref,
+  backLabel,
+  playLabel,
+  contributionsTitle,
+  galleryTitle,
+} = Astro.props as Props;
+
+const imagePrefix = "../images/" + project.slug + "/";
+const ImportedImages = import.meta.glob<{ default: ImageMetadata }>("../images/*/*.{jpeg,jpg,png,gif}");
+const bannerImage = project.bannerSrc && ImportedImages[imagePrefix + project.bannerSrc];
+---
+
+<SiteTemplate
+  siteConfig={siteConfig}
+  pageTitle={`${project.name} | ${titleSuffix}`}
+  pageDescription={project.about || project.description}
+>
+
+  <div class="fixed top-20 md:top-24 left-4 md:left-6 z-50">
+      <a href={backHref} class="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/40 dark:border-gray-700/70 bg-white/75 dark:bg-gray-900/75 hover:bg-white dark:hover:bg-gray-900 text-gray-900 dark:text-gray-100 backdrop-blur-xl transition-all duration-300 shadow-lg shadow-black/10 hover:-translate-y-0.5">
+          <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 transition-transform duration-300 group-hover:-translate-x-0.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 18l-6-6l6-6"></path></svg>
+          </span>
+          <span class="text-sm font-semibold tracking-wide">{backLabel}</span>
+      </a>
+  </div>
+
+  <section class="relative w-full h-[35vh] bg-gray-900 dark:bg-black flex items-center justify-center border-b-[6px]" style={`border-color: ${siteConfig.accentColor}`}>
+    {bannerImage && (
+      <Image 
+        src={bannerImage()} 
+        alt={`Bandeau ${project.name}`}
+        class="absolute inset-0 w-full h-full object-cover opacity-30"
+      />
+    )}
+    <div class="relative z-10 text-center px-4">
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight uppercase">
+        {project.name}
+      </h1>
+      <div class="flex flex-wrap justify-center gap-2 mt-4">
+        {project.skills?.map((skill) => (
+          <span class="px-3 py-1 bg-white dark:bg-gray-100 text-gray-900 rounded uppercase text-xs font-bold tracking-wider">
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-4xl mx-auto px-6 py-12 md:py-16 space-y-16">
+    <section class="text-center space-y-6">
+      <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
+        {project.about || project.description}
+      </p>
+
+      {project.link && (
+        <a href={project.link} target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-gray-900 hover:bg-gray-800 dark:bg-gray-100 dark:hover:bg-white text-white dark:text-gray-900 font-bold rounded shadow-md transition-colors">
+          {playLabel}
+        </a>
+      )}
+    </section>
+
+    {project.youtubeId && (
+      <section class="w-full aspect-video rounded-lg overflow-hidden shadow-2xl bg-black">
+        <iframe
+          width="100%" height="100%"
+          src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&loop=1`}
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </section>
+    )}
+
+    {project.contributions && project.contributions.length > 0 && (
+      <section>
+        <h2 class="text-3xl font-black text-gray-900 dark:text-gray-100 mb-8 border-b-2 pb-4" style={`border-color: ${siteConfig.accentColor}`}>
+          {contributionsTitle}
+        </h2>
+
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+          {project.contributions.map((contrib) => (
+            <li class="flex items-start gap-3">
+              <svg class="w-6 h-6 mt-0.5 flex-shrink-0" style={`color: ${siteConfig.accentColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-gray-700 dark:text-gray-300 leading-relaxed">{contrib}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {project.gallery && project.gallery.length > 0 && (
+      <section>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">{galleryTitle}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {project.gallery.map((mediaSrc) => {
+            const isVideo = mediaSrc.endsWith(".mp4") || mediaSrc.endsWith(".webm");
+
+            if (isVideo) {
+              return (
+                <div class="aspect-video rounded-lg overflow-hidden shadow-md border border-gray-200 dark:border-gray-800 bg-black">
+                  <video
+                    src={mediaSrc}
+                    class="w-full h-full object-cover"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                  />
+                </div>
+              );
+            }
+
+            const galleryImg = ImportedImages[imagePrefix + mediaSrc];
+            return galleryImg ? (
+              <div class="aspect-video rounded-lg overflow-hidden shadow-md border border-gray-200 dark:border-gray-800 bg-gray-100 dark:bg-gray-900">
+                <Image
+                  src={galleryImg()}
+                  alt={`Capture de ${project.name}`}
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ) : null;
+          })}
+        </div>
+      </section>
+    )}
+
+  </main>
+</SiteTemplate>

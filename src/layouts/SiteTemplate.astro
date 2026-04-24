@@ -1,0 +1,72 @@
+---
+import type { SiteConfig } from "../config";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  siteConfig: SiteConfig;
+  pageTitle?: string;
+  pageDescription?: string;
+}
+
+const {
+  siteConfig,
+  pageTitle,
+  pageDescription,
+} = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang={siteConfig.language}>
+<head>
+  <script is:inline>
+    (() => {
+      const storageKey = "user-pref-theme";
+      const isStoredTheme = (value) => value === "light" || value === "dark";
+
+      let preferredTheme = "light";
+
+      try {
+        const storedTheme = localStorage.getItem(storageKey);
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+        preferredTheme = isStoredTheme(storedTheme) ? storedTheme : systemTheme;
+      } catch {
+        preferredTheme = "light";
+      }
+
+      document.documentElement.classList.toggle("dark", preferredTheme === "dark");
+      document.documentElement.setAttribute("data-theme", preferredTheme);
+    })();
+  </script>
+
+  <script is:inline>
+    const currentUrlLang = window.location.pathname.startsWith("/fr")
+      ? "fr"
+      : "en";
+    localStorage.setItem("user-pref-lang", currentUrlLang);
+  </script>
+
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="description" content={pageDescription || siteConfig.description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet"
+  />
+  <title>{pageTitle || `${siteConfig.name} - ${siteConfig.title}`}</title>
+</head>
+<body class="bg-white text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
+  <Header siteConfig={siteConfig} />
+  <main>
+    <slot />
+    <Footer siteConfig={siteConfig} />
+  </main>
+</body>
+</html>

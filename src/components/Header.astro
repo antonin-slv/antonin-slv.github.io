@@ -2,7 +2,11 @@
 
 
 import { Icon } from "astro-icon/components";
-import type { Props } from "../config";
+import type { SiteConfig } from "../config";
+
+export interface Props {
+  siteConfig: SiteConfig;
+}
 
 const { siteConfig } = Astro.props as Props;
 
@@ -11,9 +15,11 @@ const hasExperience = siteConfig.experience && siteConfig.experience.length > 0;
 const hasEducation = siteConfig.education && siteConfig.education.length > 0;
 
 const isFrench = siteConfig.language === "fr";
+const homePath = `/${siteConfig.language}`;
 const LanguageChangeTargetUrl = isFrench ? '/en' : '/fr';
 const LanguageBtnLabel = isFrench ? 'GOTO ENGLISH ---> ' : 'Passer en français ---> ';
 const flagIcon = isFrench ?  'circle-flags:fr' : 'circle-flags:uk';
+const ThemeBtnLabel = isFrench ? 'Thème' : 'Theme';
 ---
 
 <header
@@ -24,8 +30,8 @@ const flagIcon = isFrench ?  'circle-flags:fr' : 'circle-flags:uk';
     <ul class="flex items-center gap-8 justify-center">
       <li>
         <a
-          href="#about"
-          class="text-gray-700 hover:text-black transition-colors font-medium"
+          href={`${homePath}/#about`}
+          class="js-header-text text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium"
         >
           {siteConfig?.language === "fr" ? "À propos" : "About"}
         </a>
@@ -34,8 +40,8 @@ const flagIcon = isFrench ?  'circle-flags:fr' : 'circle-flags:uk';
         hasProjects && (
           <li>
             <a
-              href="#projects"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
+              href={`${homePath}/#projects`}
+              class="js-header-text text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium"
             >
               {siteConfig?.language === "fr" ? "Projets" : "Projects"}
             </a>
@@ -46,8 +52,8 @@ const flagIcon = isFrench ?  'circle-flags:fr' : 'circle-flags:uk';
         hasExperience && (
           <li>
             <a
-              href="#experience"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
+              href={`${homePath}/#experience`}
+              class="js-header-text text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium"
             >
               {siteConfig?.language === "fr" ? "Expérience" : "Experience"}
             </a>
@@ -58,8 +64,8 @@ const flagIcon = isFrench ?  'circle-flags:fr' : 'circle-flags:uk';
         hasEducation && (
           <li>
             <a
-              href="#education"
-              class="text-gray-700 hover:text-black transition-colors font-medium"
+              href={`${homePath}/#education`}
+              class="js-header-text text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium"
             >
               {siteConfig?.language === "fr" ? "Formation" : "Education"}
             </a>
@@ -69,12 +75,22 @@ const flagIcon = isFrench ?  'circle-flags:fr' : 'circle-flags:uk';
       <a
         id="language-toggle"
         href={LanguageChangeTargetUrl}
-        class="ml-auto text-sm text-gray-600 hover:text-gray-800 transition-colors font-medium inline-flex"
+        class="js-header-text ml-auto text-sm text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium inline-flex"
 
         >
         {LanguageBtnLabel} <Icon name={flagIcon} class="ml-2 h-5 w-5" />
     
       </a> 
+
+      <button
+        id="theme-toggle"
+        type="button"
+        class="js-header-text text-sm text-gray-700 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors font-medium inline-flex items-center gap-2"
+        aria-label={ThemeBtnLabel}
+      >
+        <span>{ThemeBtnLabel}</span>
+        <Icon id="theme-toggle-icon" name="mdi:weather-night" class="h-5 w-5" />
+      </button>
 
 
     </ul>
@@ -82,18 +98,95 @@ const flagIcon = isFrench ?  'circle-flags:fr' : 'circle-flags:uk';
 </header>
 
 <script>
-  window.addEventListener("scroll", () => {
-    const header = document.getElementById("header");
-    if (window.scrollY > 100) {
-      header?.classList.add("bg-white/80", "backdrop-blur-sm");
-    } else {
-      header?.classList.remove("bg-white/80", "backdrop-blur-sm");
+  const storageKey = "user-pref-theme";
+  const headerThemeIcon = document.getElementById("theme-toggle-icon");
+  const themeToggleButton = document.getElementById("theme-toggle");
+  const header = document.getElementById("header");
+  const headerTexts = document.querySelectorAll("#header .js-header-text");
+
+  const defaultTextClasses = ["text-gray-700", "hover:text-black"];
+  const topLightTextClasses = ["text-white", "hover:text-gray-100"];
+
+  const syncHeaderTopTextContrast = () => {
+    const isProjectPage = window.location.pathname.includes("/projects/");
+    if (!isProjectPage) {
+      return;
     }
+
+    const isDark = document.documentElement.classList.contains("dark");
+    const isTop = window.scrollY <= 100;
+    const useLightTopText = isTop && !isDark;
+
+    if (useLightTopText) {
+      headerTexts.forEach((item) => {
+        item.classList.remove(...defaultTextClasses);
+        item.classList.add(...topLightTextClasses);
+      });
+      return;
+    }
+
+    headerTexts.forEach((item) => {
+      item.classList.remove(...topLightTextClasses);
+      item.classList.add(...defaultTextClasses);
+    });
+  };
+
+  const applyTheme = () => {
+    const isDark = document.documentElement.classList.contains("dark");
+    const nextTheme = isDark ? "light" : "dark";
+
+    document.documentElement.classList.toggle("dark", nextTheme === "dark");
+    document.documentElement.setAttribute("data-theme", nextTheme);
+    localStorage.setItem(storageKey, nextTheme);
+
+    if (headerThemeIcon) {
+      const iconName = nextTheme === "dark" ? "mdi:white-balance-sunny" : "mdi:weather-night";
+      headerThemeIcon.setAttribute("data-icon", iconName);
+      headerThemeIcon.setAttribute("icon", iconName);
+    }
+
+    syncHeaderTopTextContrast();
+  };
+
+  if (themeToggleButton) {
+    themeToggleButton.addEventListener("click", () => {
+      applyTheme();
+    });
+  }
+
+  const syncThemeIcon = () => {
+    const isDark = document.documentElement.classList.contains("dark");
+    if (headerThemeIcon) {
+      const iconName = isDark ? "mdi:white-balance-sunny" : "mdi:weather-night";
+      headerThemeIcon.setAttribute("data-icon", iconName);
+      headerThemeIcon.setAttribute("icon", iconName);
+    }
+  };
+
+  syncThemeIcon();
+  syncHeaderTopTextContrast();
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      header?.classList.add(
+        "bg-white/80",
+        "dark:bg-gray-900/80",
+        "backdrop-blur-sm",
+        "border-b",
+        "border-gray-200/80",
+        "dark:border-gray-700/80"
+      );
+    } else {
+      header?.classList.remove(
+        "bg-white/80",
+        "dark:bg-gray-900/80",
+        "backdrop-blur-sm",
+        "border-b",
+        "border-gray-200/80",
+        "dark:border-gray-700/80"
+      );
+    }
+
+    syncHeaderTopTextContrast();
   });
 </script>
-
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
