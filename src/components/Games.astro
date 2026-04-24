@@ -7,7 +7,7 @@ const { siteConfig } = Astro.props as Props;
 const hasProjects = siteConfig.games && siteConfig.games.length > 0;
 
 // Chargement dynamique des images
-const ImportedImages = import.meta.glob<{ default: ImageMetadata }>('../images/*/*.{jpeg,jpg,png,gif}');
+const ImportedImages = import.meta.glob<{ default: ImageMetadata }>('../images/*/*.{jpeg,jpg,png,gif,mp4}');
 ---
 
 {

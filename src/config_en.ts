@@ -121,15 +121,19 @@ export const enSiteConfig : SiteConfig = {
       name: "TGC - F1 2023",
       slug: "tgc-f1",
       short_desc: "A 2D F1 racing game with a track editor, made in C++ for linux with SFML.",
-      description: `Created in the context of a programming course, this F1 racing game puts you behind the wheel of a Formula 1 car on a winding track. It also features a track editor to create your own races.`,
+      description: `Created in the context of a programming course, this racing game puts you behind the wheel of a Formula 1 car on a winding track. It also features a track editor to create your own races.`,
       link: "https://github.com/antonin-slv/TGC-F1",
       imageSrc: "tgc_f1.png",
-      bannerSrc: "tgc_f1.png",
+      bannerSrc: "title.png",
       skills: ["C/C++", "SFML", "git"],
       contributions : [
         "Conception of the game, with physics, controls and SFML integration",
         "Creation of the track editor, allowing players to design their own tracks"
-      ]
+      ],
+      gallery : [
+        "/tgcf1_editor.mp4",
+        "/tgcf1_game.webm"
+      ],
     }
   ],
   projects: [

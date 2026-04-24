@@ -126,11 +126,15 @@ Nous avons obtenu une mention honorable pour ce jeu, et nous nous sommes beaucou
       name: "TGC - F1 2023",
       slug: "tgc-f1",
       short_desc: "Jeu de F1 en 2D avec éditeur de circuit, réalisé en C++ avec SFML pour linux",
-      description: `Créé dans le cadre d'un cours de programmation, ce jeu de course de F1 vous met au volant d'une voiture de Formule 1 sur un circuit sinueux. Il possède également un éditeur de circuit pour créer vos propres pistes. Ne tourne que sous linux.`,
+      description: `Créé en 2023 dans le cadre d'un cours de programmation, ce jeu de course vous met au volant d'une voiture de Formule 1 sur des circuit très sinueux. Il possède également un éditeur de circuit pour créer vos propres pistes. A été débugué et porté sous windows en 2026.`,
       link: "https://github.com/antonin-slv/TGC-F1",
       imageSrc: "tgc_f1.png",
-      bannerSrc: "tgc_f1.png",
+      bannerSrc: "title.png",
       skills: ["C/C++", "SFML", "git"],
+      gallery : [
+        "/tgcf1_editor.mp4",
+        "/tgcf1_game.webm"
+      ],
       contributions : [
         "Conception du jeu de course, avec la physique, les contrôles et l'intégration de SFML",
         "Création de l'éditeur de circuit, permettant aux joueurs de concevoir leurs propres pistes",
