@@ -181,12 +181,12 @@ export const enSiteConfig : SiteConfig = {
     {
       name: "Messaging Application",
       slug: "discord-like",
-      short_desc: "High-responsiveness messaging platform built on a robust Jakarta EE 10 architecture and a reactive Angular frontend.",
-      description: `Design and development of a full-scale social messaging infrastructure. The backend leverages Java 21 and Jakarta EE to orchestrate complex data relationships (servers, channels, private messaging) with optimized PostgreSQL persistence. The user experience is powered by a modular and performant Angular application.`,
+      short_desc: "Messaging platform built on a Jakarta EE 10 architecture and a Angular frontend.",
+      description: `Design and development of a social messaging infrastructure. The backend leverages Java 21 and Jakarta EE to orchestrate complex data relationships (servers, channels, private messaging) with PostgreSQL persistence. The user experience is powered by a modular Angular application.`,
       link: "https://github.com/antonin-slv/WS4A_DISCORD",
       imageSrc: "connexion.png",
       bannerSrc: "messages1.png",
-      skills: ["Java 21", "Jakarta EE", "Hibernate", "PostgreSQL", "Angular", "REST API"],
+      skills: ["Java", "Jakarta EE", "Hibernate", "PostgreSQL", "Angular", "REST API"],
       gallery: ["connexion.png", "messages1.png"],
       contributions: [
         "Engineered a layered backend architecture (DAO/Service/Controller) to ensure strict separation of concerns.",

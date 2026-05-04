@@ -181,11 +181,11 @@ export const frSiteConfig : SiteConfig = {
       name: "Application de messagerie",
       slug: "discord-like",
       short_desc: "Plateforme de messagerie basée sur une architecture Jakarta EE 10 et un frontend Angular.",
-      description: `Conception d'une infrastructure de messagerie sociale complète. Le backend exploite Java 21 et Jakarta EE pour orchestrer des relations de données complexes (serveurs, salons, messagerie privée) avec une persistance optimisée sous PostgreSQL. L'expérience utilisateur est assurée par une application Angular modulaire.`,
+      description: `Conception d'une infrastructure de messagerie sociale. Le backend exploite Java 21 et Jakarta EE pour orchestrer des relations de données complexes (serveurs, salons, messagerie privée) avec une persistance sous PostgreSQL. L'expérience utilisateur est assurée par une application Angular modulaire.`,
       link: "https://github.com/antonin-slv/WS4A_DISCORD",
       imageSrc: "connexion.png",
       bannerSrc: "messages1.png",
-      skills: ["Java 21", "Jakarta EE", "Hibernate", "PostgreSQL", "Angular", "REST API"],
+      skills: ["Java", "Jakarta EE", "Hibernate", "PostgreSQL", "Angular", "REST API"],
       gallery: ["connexion.png", "messages1.png"],
       contributions: [
         "Architecture du Backend en couches (DAO/Service/Controller) pour une séparation stricte des préoccupations.",
