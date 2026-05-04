@@ -177,6 +177,23 @@ export const enSiteConfig : SiteConfig = {
         "Design of the control unit, the ALU, and register management.",
         "Development and specification of the custom assembly language.",
       ]
+    },
+    {
+      name: "Messaging Application",
+      slug: "discord-like",
+      short_desc: "High-responsiveness messaging platform built on a robust Jakarta EE 10 architecture and a reactive Angular frontend.",
+      description: `Design and development of a full-scale social messaging infrastructure. The backend leverages Java 21 and Jakarta EE to orchestrate complex data relationships (servers, channels, private messaging) with optimized PostgreSQL persistence. The user experience is powered by a modular and performant Angular application.`,
+      link: "https://github.com/antonin-slv/WS4A_DISCORD",
+      imageSrc: "connexion.png",
+      bannerSrc: "messages1.png",
+      skills: ["Java 21", "Jakarta EE", "Hibernate", "PostgreSQL", "Angular", "REST API"],
+      gallery: ["connexion.png", "messages1.png"],
+      contributions: [
+        "Engineered a layered backend architecture (DAO/Service/Controller) to ensure strict separation of concerns.",
+        "Implemented a custom security layer, handling the transition from Basic Auth to Bearer Token authentication.",
+        "Streamlined data interoperability through the rigorous use of DTOs and Jackson Mappers.",
+        "Developed a reactive frontend interface managing complex authentication states and dynamic data flows.",
+      ]
     }
   ],
   experience: [

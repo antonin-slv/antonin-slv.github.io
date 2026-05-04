@@ -176,6 +176,23 @@ export const frSiteConfig : SiteConfig = {
         "Conception de l'unité de contrôle, de l'ALU et de la gestion des registres.",
         "Développement et spécification du langage d'assemblage personnalisé.",
       ]
+    },
+    {
+      name: "Application de messagerie",
+      slug: "discord-like",
+      short_desc: "Plateforme de messagerie basée sur une architecture Jakarta EE 10 et un frontend Angular.",
+      description: `Conception d'une infrastructure de messagerie sociale complète. Le backend exploite Java 21 et Jakarta EE pour orchestrer des relations de données complexes (serveurs, salons, messagerie privée) avec une persistance optimisée sous PostgreSQL. L'expérience utilisateur est assurée par une application Angular modulaire.`,
+      link: "https://github.com/antonin-slv/WS4A_DISCORD",
+      imageSrc: "connexion.png",
+      bannerSrc: "messages1.png",
+      skills: ["Java 21", "Jakarta EE", "Hibernate", "PostgreSQL", "Angular", "REST API"],
+      gallery: ["connexion.png", "messages1.png"],
+      contributions: [
+        "Architecture du Backend en couches (DAO/Service/Controller) pour une séparation stricte des préoccupations.",
+        "Implémentation d'une couche de sécurité sur-mesure (Authentification Basic vers Bearer Token).",
+        "Interopérabilité des données via l'utilisation rigoureuse de DTOs et Mappers Jackson.",
+        "Développement d'une interface frontend réactive gérant les états d'authentification et les flux de données.",
+      ]
     }
   ],
   experience: [
