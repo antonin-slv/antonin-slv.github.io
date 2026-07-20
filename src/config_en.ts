@@ -21,21 +21,53 @@ export const enSiteConfig : SiteConfig = {
   skills: ["C/C++", "Unreal Engine", "Python", "JAVA", "SQL", "HTML/CSS/JS"],
   games: [
     {
-      name: "A Wee tank in the woods",
-      slug: "a-wee-tank",
-      short_desc: "Arcade tank game in a forest made with Unreal Engine 5.",
+      name: "Particle Remanance",
+      slug: "particle-remanence",
+      short_desc: "3D platformer game where competences are represented by particles.",
       description:
-        `Lumberjacks are cutting down the forest. The little tank controlled by the player tries to stop them despite growing resistance. First complete project under Unreal Engine exploring the production workflow.`,
-      imageSrc: "AWeeTank.png",
-      link: "https://antonin-slv.itch.io/a-wee-tank",
+        `A 3D platformer game where the player's skills are represented by particles.
+        The player must navigate through a world where the environment reacts to their abilities, creating a dynamic and immersive experience.
+        The game put an emphasis on speedrunning.
+        `,
+      link: "https://alexandre-h.itch.io/particle-remanence",
+      imageSrc: "particule_remanence.png",
+      youtubeId: "4NcIJY8S0Iw",
       skills: ["UE5", "C++", "Perforce"],
-      youtubeId: "Ijm4fshrnnU",
-      bannerSrc: "AWeeTank.png",
+      bannerSrc: "particule_remanence.png",
       contributions : [
-        "Design and development of the tank's gameplay, including movement and aiming.",
-        "Optimization of lumberjack AI and management of environmental collisions.",
-        "Sound Design integration for the tank's feedbacks."
+        "Development of the ability system.",
+        "Design of the cards and in-game implementation.",
+        "Iteration over the particle system to create different effects based on the abilities.",
+        "Implementation of a partial recording/play-back system of the player's actions (used for the last part of the trailer)"
       ]
+
+    },
+        {
+      slug: "mmo",
+      bannerSrc: "mmo_architecture.png",
+      imageSrc: "mmo_architecture.png",
+      name: "MMO Infrastructure",
+      short_desc: "Creation of a containerized network architecture for MMOs in RUST",
+      description: "Creation of an infrastructure allowing thousands of players to use the same servers.",
+      link: "https://github.com/antonin-slv/UQAC_MMO",
+      skills: ["Rust", "Docker", "Quic", "Git"],
+      contributions : [
+        "Conception of a network architecture based on a homemade Pub/Sub model for MMOs and videogames",
+        "Implementation of a containerized architecture for the MMO servers using Docker and Docker Compose",
+        "Definition of the communication protocol for the MMO network",
+        "Implementation of the Dedicated Game Server, the broker, and assistance on the spatial server",
+        "Implementation of reliable and unreliable messages through a central broker",
+        "Component-based replication system for game entities",
+        "Authority transfer for game entities and of the geographic zones of the servers"
+      ],
+      gallery: [
+        "/demo_mmo.mp4",
+        "mmo_architecture.png",
+        "mmo_docker.png",
+        "quadTree.png",
+        "mmo_schema.png",
+      ],
+      
     },
     {
       name: "Project Teapot",
@@ -67,7 +99,7 @@ export const enSiteConfig : SiteConfig = {
       bannerSrc: "the_boat.gif",
       contributions : [
         "Implementation and customization of the godot-rl-agents library for the Godot engine.",
-        "Definition of reward functions and state vectors for training.",
+        "DefinitionD  of reward functions and state vectors for training.",
         "Optimization of hyperparameters to increase the agent's decision-making performance."
       ],
     },
@@ -105,6 +137,23 @@ export const enSiteConfig : SiteConfig = {
         "Management of the Blender to Unreal Engine 5 export pipeline and creation of 3D assets.",
         "Peer-programming and technical debugging on various project systems.",
         "Active participation in brainstorming and initial balancing of game mechanics."
+      ]
+    },    
+    {
+      name: "A Wee tank in the woods",
+      slug: "a-wee-tank",
+      short_desc: "Arcade tank game in a forest made with Unreal Engine 5.",
+      description:
+        `Lumberjacks are cutting down the forest. The little tank controlled by the player tries to stop them despite growing resistance. First complete project under Unreal Engine exploring the production workflow.`,
+      imageSrc: "AWeeTank.png",
+      link: "https://antonin-slv.itch.io/a-wee-tank",
+      skills: ["UE5", "C++", "Perforce"],
+      youtubeId: "Ijm4fshrnnU",
+      bannerSrc: "AWeeTank.png",
+      contributions : [
+        "Design and development of the tank's gameplay, including movement and aiming.",
+        "Optimization of lumberjack AI and management of environmental collisions.",
+        "Sound Design integration for the tank's feedbacks."
       ]
     },
     {

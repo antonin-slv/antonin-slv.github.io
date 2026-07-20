@@ -20,22 +20,52 @@ export const frSiteConfig : SiteConfig = {
   je recherche aujourd'hui la dernière brique pour concrétiser la transition vers ma carrière professionnelle : un stage de fin d'étude.`,
   skills: ["C/C++", "Unreal Engine", "Python", "JAVA", "SQL", "HTML/CSS/JS"],
   games: [
-    {
-      name: "A Wee tank in the woods",
-      slug: "a-wee-tank",
-      short_desc: "Jeu de tank arcade en forêt réalisé avec Unreal Engine 5.",
+        {
+      name: "Particule Rémanance",
+      slug: "particle-remanence",
+      short_desc: "Jeu de plateforme 3D où les compétences sont représentées par des particules.",
       description:
-        `Des bûcherons abattent les arbres de la forêt. Le petit tank contrôlé par le joueur tente de les arrêter malgré une résistance croissante. Premier projet complet sous Unreal Engine explorant le workflow de production.`,
-      imageSrc: "AWeeTank.png",
-      link: "https://antonin-slv.itch.io/a-wee-tank",
+        `Un jeu de plateforme 3D où les compétences du joueur sont représentées par des particules.
+        Le joueur doit naviguer à travers un monde où l'environnement réagit à leurs capacités, créant une expérience dynamique et immersante.
+        Le tout étant dédié au speedrun.`,
+      link: "https://alexandre-h.itch.io/particle-remanence",
+      imageSrc: "particule_remanence.png",
+      youtubeId: "4NcIJY8S0Iw",
       skills: ["UE5", "C++", "Perforce"],
-      youtubeId: "Ijm4fshrnnU",
-      bannerSrc: "AWeeTank.png",
+      bannerSrc: "particule_remanence.png",
       contributions : [
-        "Conception et développement du gameplay du tank avec les mouvements et la visée)",
-        "Optimisation de l'IA des bûcherons et gestion des collisions environnementales.",
-        "Intégration du Sound Design pour les feedbacks du tank."
+        "Développement du système de compétences (cartes, actions, évènements)",
+        "Design des cartes et de leur shader",
+        "Itération sur le système de particules pour créer un retour visuel différent pour chaque compétence",
+        "Implementation of a partial recording/play-back system of the player's actions (used for the last part of the trailer)"
       ]
+
+    },
+
+    {
+      slug: "mmo",
+      bannerSrc: "mmo_architecture.png",
+      imageSrc: "mmo_architecture.png",
+      name: "Infrastructure MMO",
+      short_desc: "Création d'une architecture réseau containeurisée pour MMO en RUST",
+      description: "Création d'une infrastructure permettant à des milliers de joueurs d'utiliser les mêmes serveurs.",
+      link: "https://github.com/antonin-slv/UQAC_MMO",
+      skills: ["Rust", "Docker", "Quic", "Git"],
+      contributions : [
+        "Conception d'une architecture réseau Pub Sub dédiée aux MMO, et du protocol de communication",
+        "Écriture des \"Dedicated Game Server\", du broker, et aide sur le \"spatial server\"",
+        "Mise en place de messages reliable et unreliable au travers d'un broker central",
+        "Système de réplication par composant pour les entités du jeu",
+        "Changement d'authorité des entités, ainsi que des zones géographiques des serveurs"
+      ],
+      gallery: [
+        "/demo_mmo.mp4",
+        "mmo_architecture.png",
+        "mmo_docker.png",
+        "quadTree.png",
+        "mmo_schema.png",
+      ],
+      
     },
     {
       name: "Project Teapot",
@@ -108,6 +138,23 @@ export const frSiteConfig : SiteConfig = {
       ]
     },
     {
+      name: "A Wee tank in the woods",
+      slug: "a-wee-tank",
+      short_desc: "Jeu de tank arcade en forêt réalisé avec Unreal Engine 5.",
+      description:
+        `Des bûcherons abattent les arbres de la forêt. Le petit tank contrôlé par le joueur tente de les arrêter malgré une résistance croissante. Premier projet complet sous Unreal Engine explorant le workflow de production.`,
+      imageSrc: "AWeeTank.png",
+      link: "https://antonin-slv.itch.io/a-wee-tank",
+      skills: ["UE5", "C++", "Perforce"],
+      youtubeId: "Ijm4fshrnnU",
+      bannerSrc: "AWeeTank.png",
+      contributions : [
+        "Conception et développement du gameplay du tank avec les mouvements et la visée)",
+        "Optimisation de l'IA des bûcherons et gestion des collisions environnementales.",
+        "Intégration du Sound Design pour les feedbacks du tank."
+      ]
+    },
+    {
       name: "TGC - F1 2023",
       slug: "tgc-f1",
       short_desc: "Jeu de course 2D avec éditeur de circuits, développé en C++ (SFML).",
@@ -125,7 +172,7 @@ export const frSiteConfig : SiteConfig = {
         "Développement du moteur physique, des contrôles et intégration de la SFML.",
         "Architecture et création de l'éditeur de circuit persistant.",
       ]
-    },
+    }
   ],
   projects: [
     {
