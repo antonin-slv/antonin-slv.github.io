@@ -178,12 +178,12 @@ export const frSiteConfig : SiteConfig = {
     {
       name: "Handmade Hero & Rasterisation",
       slug: "handmade-hero",
-      short_desc: "Visualiseur 3D logiciel développé en C pur pour explorer les bases du rendu.",
+      short_desc: "Visualiseur 3D logiciel développé en C et C++ pour explorer les bases du rendu.",
       description: `Originalement créé dans le cadre du tutoriel 'Handmade Hero'  par Casey Muratori,
-      ce projet consiste en la création d'un moteur de rendu 3D minimaliste sans API graphique externe, utilisant uniquement le C et l'API Windows.`,
+      ce projet consiste en la création d'un moteur de rendu 3D minimaliste sans API graphique externe, utilisant uniquement du C, du C++ et l'API Windows.`,
       link: "https://github.com/antonin-slv/handmade",
       imageSrc: "handmade.png",
-      skills: ["C", "Windows API"], 
+      skills: ["C / C++", "Windows API" ], 
       bannerSrc: "handmade.png",
       contributions : [
         "Implémentation d'un rasterizer logiciel incluant le remplissage de triangles et le depth buffering.",
